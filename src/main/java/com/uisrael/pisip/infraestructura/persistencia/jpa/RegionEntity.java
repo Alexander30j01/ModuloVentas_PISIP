@@ -8,11 +8,11 @@ import lombok.Data;
 @Entity
 
 @Data
-@Table(name="zona_venta")
-public class ZonaventaEntity {
+@Table(name = "region")
+public class RegionEntity {
 	@Id
-	private int idZonaventa;
+	private int idRegion;
 	private String nombre;
-	private String descripcion;
+	private boolean estado;
 
 }

@@ -20,7 +20,7 @@ import com.uisrael.pisip.presentacion.mapeadores.DetallePedidoDtoMapper;
 
 import jakarta.validation.Valid;
 
-@RestController
+//@RestController
 @RequestMapping("/api/detallePedido")
 public class DetallePedidoController {
 

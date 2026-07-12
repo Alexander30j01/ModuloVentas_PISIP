@@ -21,7 +21,7 @@ import com.uisrael.pisip.presentacion.mapeadores.ProductoDtoMapper;
 
 import jakarta.validation.Valid;
 
-@RestController
+//@RestController
 @RequestMapping("/api/producto")
 public class ProductoController {
 

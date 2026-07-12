@@ -21,7 +21,7 @@ import com.uisrael.pisip.presentacion.mapeadores.UsuariosDtoMapper;
 
 import jakarta.validation.Valid;
 
-@RestController
+//@RestController
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 

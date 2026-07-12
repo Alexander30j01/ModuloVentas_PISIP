@@ -21,7 +21,7 @@ import com.uisrael.pisip.presentacion.mapeadores.SolicitudCreditoDtoMapper;
 
 import jakarta.validation.Valid;
 
-@RestController
+//@RestController
 @RequestMapping("/api/solicitudCredito")
 public class SolicitudCreditoController {
 

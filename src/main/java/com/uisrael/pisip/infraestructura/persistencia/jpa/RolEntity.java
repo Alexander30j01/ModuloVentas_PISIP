@@ -6,12 +6,14 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
+
 @Data
-@Table(name = "evidencia_crediticia")
-public class EvidenciaEntity {
+@Table(name = "rol")
+public class RolEntity {
 	@Id
-	private int idEvidencias;
-	private String rutaArchivoUrl;
-	private String tipoEvidencia;
+	private int idRol;
+	private String nombre;
+	private String descripcion;
+	private boolean estado;
 
 }
