@@ -1,54 +1,44 @@
 package com.uisrael.pisip.presentacion.controladores;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
 import com.uisrael.pisip.aplicacion.casouso.entrada.IProductoUseCase;
-import com.uisrael.pisip.presentacion.dto.request.ProductoRequestDto;
-import com.uisrael.pisip.presentacion.dto.response.ProductoResponseDto;
-import com.uisrael.pisip.presentacion.mapeadores.ProductoDtoMapper;
-
-import jakarta.validation.Valid;
-
-//@RestController
+@RestController
 @RequestMapping("/api/producto")
 public class ProductoController {
 
-	private final IProductoUseCase productoUseCase;
-	private final ProductoDtoMapper mapper;
+    private final IProductoUseCase productoUseCase;
 
-	public ProductoController(IProductoUseCase productoUseCase, ProductoDtoMapper mapper) {
-		super();
-		this.productoUseCase = productoUseCase;
-		this.mapper = mapper;
-	}
+    public ProductoController(IProductoUseCase productoUseCase) {
+        this.productoUseCase = productoUseCase;
+    }
 
-	@PostMapping
-	@ResponseStatus(HttpStatus.CREATED)
-	public ProductoResponseDto guardar(@Valid @RequestBody ProductoRequestDto request) {
-		return mapper.toResponse(productoUseCase.guardar(mapper.toDomain(request)));
-	}
+    @PostMapping("/{id}/aumentar")
+    public ResponseEntity<Void> aumentar(@PathVariable int id, @RequestParam int cantidad) {
+        productoUseCase.aumentarStock(id, cantidad);
+        return ResponseEntity.noContent().build();
+    }
 
-	@GetMapping
-	public List<ProductoResponseDto> listarTodo() {
-		return productoUseCase.listarTodos().stream().map(mapper::toResponse).toList();
-	}
+    @PostMapping("/{id}/disminuir")
+    public ResponseEntity<Void> disminuir(@PathVariable int id, @RequestParam int cantidad) {
+        productoUseCase.disminuirStock(id, cantidad);
+        return ResponseEntity.noContent().build();
+    }
 
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> eliminar(@PathVariable int idProducto) {
-		productoUseCase.eliminar(idProducto);
-		return ResponseEntity.noContent().build();
-	}
+    @PostMapping("/{id}/activar")
+    public ResponseEntity<Void> activar(@PathVariable int id) {
+        productoUseCase.activar(id);
+        return ResponseEntity.noContent().build();
+    }
 
+    @PostMapping("/{id}/desactivar")
+    public ResponseEntity<Void> desactivar(@PathVariable int id) {
+        productoUseCase.desactivar(id);
+        return ResponseEntity.noContent().build();
+    }
 }

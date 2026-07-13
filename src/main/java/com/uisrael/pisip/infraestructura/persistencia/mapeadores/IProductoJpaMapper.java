@@ -8,8 +8,12 @@ import com.uisrael.pisip.infraestructura.persistencia.jpa.ProductoEntity;
 @Mapper(componentModel = "spring")
 public interface IProductoJpaMapper {
 	
-	Producto toDominio(ProductoEntity entity);
+	/*Producto toDominio(ProductoEntity entity);
 	
 	ProductoEntity toEntity(Producto producto);
 
+}*/
+    Producto toDominio(ProductoEntity entity);
+    
+    ProductoEntity toEntity(Producto producto);
 }

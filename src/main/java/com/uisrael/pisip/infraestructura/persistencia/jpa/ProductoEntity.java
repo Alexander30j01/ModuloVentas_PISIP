@@ -14,4 +14,6 @@ public class ProductoEntity {
 	private int idProductos;
 	private String nombreProductos;
 	private String descripcion;
+	private int stock;
+	private boolean estado;
 }

@@ -1,42 +1,88 @@
 package com.uisrael.pisip.aplicacion.casouso.impl;
 
-import java.util.List;
-
+import org.springframework.stereotype.Service;
 import com.uisrael.pisip.aplicacion.casouso.entrada.IProductoUseCase;
 import com.uisrael.pisip.dominio.entidades.Producto;
 import com.uisrael.pisip.dominio.repositorio.IProductoRepositorio;
 
-public class ProductoUseCaseImpl implements IProductoUseCase  {
-	
-	private final IProductoRepositorio repositorio;
-	
+@Service
+public class ProductoUseCaseImpl implements IProductoUseCase {
 
-	public ProductoUseCaseImpl(IProductoRepositorio repositorio) {
-		super();
-		this.repositorio = repositorio;
-	}
+    private final IProductoRepositorio repositorio;
 
-	@Override
-	public Producto guardar(Producto nuevaProducto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public ProductoUseCaseImpl(IProductoRepositorio repositorio) {
+        this.repositorio = repositorio;
+    }
 
-	@Override
-	public Producto buscarPorId(int idProducto) {
-		return repositorio.buscarPorId(idProducto).orElseThrow(()->new
-				RuntimeException("Producto no encontrado"));
-	}
+    @Override
+    public Producto registrar(Producto producto) {
+        producto.setEstado(true); // Por defecto activo
+        return repositorio.guardar(producto);
+    }
 
-	@Override
-	public List<Producto> listarTodos() {
-		return repositorio.listarTodo();
-	}
+    @Override
+    public Producto actualizar(Producto producto) {
+        return repositorio.guardar(producto);
+    }
 
-	@Override
-	public void eliminar(int idProducto) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void aumentarStock(int id, int cantidad) {
+        Producto p = repositorio.buscarPorId(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        p.setStock(p.getStock() + cantidad);
+        repositorio.guardar(p);
+    }
+
+    @Override
+    public void disminuirStock(int id, int cantidad) {
+        Producto p = repositorio.buscarPorId(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        if (p.getStock() < cantidad) throw new RuntimeException("Stock insuficiente");
+        p.setStock(p.getStock() - cantidad);
+        repositorio.guardar(p);
+    }
+
+    @Override
+    public float consultarPrecio(int id) {
+        // Asumiendo que quisieras obtenerlo de una tabla de precios o del mismo producto
+        return 0.0f; // Aquí integrarías tu lógica de PrecioRepositorio
+    }
+
+    @Override
+    public void activar(int id) {
+        Producto p = repositorio.buscarPorId(id).orElseThrow();
+        p.setEstado(true);
+        repositorio.guardar(p);
+    }
+
+    @Override
+    public void desactivar(int id) {
+        Producto p = repositorio.buscarPorId(id).orElseThrow();
+        p.setEstado(false);
+        repositorio.guardar(p);
+    }
 
 }
+
+/*
+ * private final IProductoRepositorio repositorio;
+ * 
+ * 
+ * public ProductoUseCaseImpl(IProductoRepositorio repositorio) { super();
+ * this.repositorio = repositorio; }
+ * 
+ * @Override public Producto guardar(Producto nuevaProducto) { // TODO
+ * Auto-generated method stub return null; }
+ * 
+ * @Override public Producto buscarPorId(int idProducto) { return
+ * repositorio.buscarPorId(idProducto).orElseThrow(()->new
+ * RuntimeException("Producto no encontrado")); }
+ * 
+ * @Override public List<Producto> listarTodos() { return
+ * repositorio.listarTodo(); }
+ * 
+ * @Override public void eliminar(int idProducto) { // TODO Auto-generated
+ * method stub
+ * 
+ * }
+ * 
+ * }
+ */
