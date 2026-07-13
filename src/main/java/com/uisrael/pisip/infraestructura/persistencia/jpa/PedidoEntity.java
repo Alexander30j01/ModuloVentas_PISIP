@@ -10,7 +10,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "pedido")
-public class PedidosEntity {
+public class PedidoEntity {
 	@Id
 	private int idPedidos;
 	private Date fechaRegistro;

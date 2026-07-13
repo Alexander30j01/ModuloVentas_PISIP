@@ -3,13 +3,13 @@ package com.uisrael.pisip.infraestructura.persistencia.mapeadores;
 import org.mapstruct.Mapper;
 
 import com.uisrael.pisip.dominio.entidades.Pedidos;
-import com.uisrael.pisip.infraestructura.persistencia.jpa.PedidosEntity;
+import com.uisrael.pisip.infraestructura.persistencia.jpa.PedidoEntity;
 
 @Mapper(componentModel = "spring")
 public interface IPedidosJpaMapper {
 
-	Pedidos toDominio(PedidosEntity entity);
+	Pedidos toDominio(PedidoEntity entity);
 
-	PedidosEntity toEntity(Pedidos pedidos);
+	PedidoEntity toEntity(Pedidos pedidos);
 
 }

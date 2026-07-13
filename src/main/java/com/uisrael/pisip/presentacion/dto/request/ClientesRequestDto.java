@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class ClientesRequestDto {
-	@NotBlank
+	
 	private int idClientes;
 	@NotBlank
 	private String ruc;

@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.uisrael.pisip.dominio.entidades.Pedidos;
 import com.uisrael.pisip.dominio.repositorio.IPedidosRepositorio;
-import com.uisrael.pisip.infraestructura.persistencia.jpa.PedidosEntity;
+import com.uisrael.pisip.infraestructura.persistencia.jpa.PedidoEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.IPedidosJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.IPedidosJpaRepositorio;
 
@@ -22,8 +22,8 @@ public class PedidosRepositorioImpl implements IPedidosRepositorio {
 
 	@Override
 	public Pedidos guardar(Pedidos nuevopedidos) {
-		PedidosEntity entidad = entityMapper.toEntity(nuevopedidos);
-		PedidosEntity guardado = jpaRepositorio.save(entidad);
+		PedidoEntity entidad = entityMapper.toEntity(nuevopedidos);
+		PedidoEntity guardado = jpaRepositorio.save(entidad);
 		return entityMapper.toDominio(guardado);
 	}
 

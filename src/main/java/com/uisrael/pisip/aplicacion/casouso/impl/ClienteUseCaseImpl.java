@@ -6,11 +6,11 @@ import com.uisrael.pisip.aplicacion.casouso.entrada.IClientesUseCase;
 import com.uisrael.pisip.dominio.entidades.Cliente;
 import com.uisrael.pisip.dominio.repositorio.IClienteRepositorio;
 
-public class ClientesUseCaseImpl implements IClientesUseCase {
+public class ClienteUseCaseImpl implements IClientesUseCase {
 
 	private final IClienteRepositorio repositorio;
 
-	public ClientesUseCaseImpl(IClienteRepositorio repositorio) {
+	public ClienteUseCaseImpl(IClienteRepositorio repositorio) {
 		this.repositorio = repositorio;
 	}
 
