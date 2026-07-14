@@ -9,7 +9,6 @@ import lombok.Data;
 @Data
 @Table(name = "producto")
 public class ProductoEntity {
-
 	@Id
 	private int idProductos;
 	private String nombreProductos;
