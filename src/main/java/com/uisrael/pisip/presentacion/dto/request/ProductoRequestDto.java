@@ -11,5 +11,9 @@ public class ProductoRequestDto {
 	private String nombreProductos;
 	@NotBlank
 	private String descripcion;
+	@NotBlank
+	private int stock;
+	@NotBlank
+	private boolean estado;
 
 }
