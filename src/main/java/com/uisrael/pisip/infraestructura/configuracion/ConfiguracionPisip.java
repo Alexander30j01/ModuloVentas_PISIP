@@ -13,4 +13,18 @@ public class ConfiguracionPisip {
 	public IDocumentacionUseCase documentacionUseCase(IDocumentacionRepositorio documentacionRepositorio) {
 		return new DocumentacionUseCaseImpl(documentacionRepositorio);
 	}
+	@Bean
+    public ISolicitudCreditoUseCase solicitudCreditoUseCase(ISolicitudCreditoRepositorio solicitudCreditoRepositorio) {
+        return new SolicitudCreditoUseCaseImpl(solicitudCreditoRepositorio);
+}
+
+    @Bean
+    public IUsuariosUseCase usuariosUseCase(IUsuariosRepositorio usuariosRepositorio) {
+        return new UsuariosUseCaseImpl(usuariosRepositorio);
+}
+
+    @Bean
+    public IVisitaUseCase visitaUseCase(IVisitaRepositorio visitaRepositorio) {
+       return new VisitaUseCaseImpl(visitaRepositorio);
+ }
 }
