@@ -9,12 +9,12 @@ import com.uisrael.pisip.infraestructura.persistencia.jpa.UsuariosEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.IUsuariosJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.IUsuariosJpaRepositorio;
 
-public class UsuarioRepositorioImpl implements IUsuariosRepositorio {
+public class UsuariosRepositorioImpl implements IUsuariosRepositorio {
 	
 	private final IUsuariosJpaRepositorio jpaRepositorio;
 	private final IUsuariosJpaMapper entityMapper;
 	
-	public UsuarioRepositorioImpl(IUsuariosJpaRepositorio jpaRepositorio, IUsuariosJpaMapper entityMapper) {
+	public UsuariosRepositorioImpl(IUsuariosJpaRepositorio jpaRepositorio, IUsuariosJpaMapper entityMapper) {
 		super();
 		this.jpaRepositorio = jpaRepositorio;
 		this.entityMapper = entityMapper;

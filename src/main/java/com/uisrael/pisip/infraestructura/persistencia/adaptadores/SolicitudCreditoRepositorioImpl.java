@@ -9,12 +9,12 @@ import com.uisrael.pisip.infraestructura.persistencia.jpa.SolicitudCreditoEntity
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.ISolicitudCreditoJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.ISolicitudCreditoJpaRepositorio;
 
-public class SolicitudCreditoImpl implements ISolicitudCreditoRepositorio{
+public class SolicitudCreditoRepositorioImpl implements ISolicitudCreditoRepositorio{
 	
 	private final ISolicitudCreditoJpaRepositorio jpaRepositorio;
 	private final ISolicitudCreditoJpaMapper entityMapper;
 
-	public SolicitudCreditoImpl(ISolicitudCreditoJpaRepositorio jpaRepositorio,
+	public SolicitudCreditoRepositorioImpl(ISolicitudCreditoJpaRepositorio jpaRepositorio,
 			ISolicitudCreditoJpaMapper entityMapper) {
 		super();
 		this.jpaRepositorio = jpaRepositorio;

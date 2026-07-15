@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.uisrael.pisip.aplicacion.casouso.entrada.IDetallePedidoUseCase;
 import com.uisrael.pisip.presentacion.dto.request.DetallePedidoRequestDto;
 import com.uisrael.pisip.presentacion.dto.response.DetallePedidoResponseDto;
