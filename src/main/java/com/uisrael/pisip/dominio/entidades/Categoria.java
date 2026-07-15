@@ -16,7 +16,6 @@ public class Categoria {
 	}
 
 	public Categoria() {
-		super();
 	}
 
 	public int getIdCategoria() {
