@@ -14,5 +14,15 @@ public interface IVisitaRepositorio {
     List<Visita> listarTodo();
 
     void eliminar(int idVisita);
+    
+    Visita registrarIngreso(int idVisita);
+    
+    Visita registrarSalida(int idVisita);
+    
+    Visita registrarUbicacion(int idVisita, double latitud, double longitud);
+    
+    long calcularTiempoVisita(int idVisita);
+    
+    Visita agregarObservacion(int idVisita, String observacion);
 
 }

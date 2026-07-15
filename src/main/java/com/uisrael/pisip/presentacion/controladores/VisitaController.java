@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -51,6 +53,50 @@ public class VisitaController {
     public ResponseEntity<Void> eliminar(@PathVariable int idVisita) {
         visitaUseCase.eliminar(idVisita);
         return ResponseEntity.noContent().build();
+    }
+    
+    @PutMapping("/{id}/registrarIngreso")
+    public VisitaResponseDto registrarIngreso(@PathVariable("id") int idVisita) {
+
+        return mapper.toResponse(
+                visitaUseCase.registrarIngreso(idVisita));
+
+    }
+    
+    @PutMapping("/{id}/registrarSalida")
+    public VisitaResponseDto registrarSalida(@PathVariable("id") int idVisita) {
+
+        return mapper.toResponse(
+                visitaUseCase.registrarSalida(idVisita));
+
+    }
+    
+    @PutMapping("/{id}/registrarUbicacion")
+    public VisitaResponseDto registrarUbicacion(
+            @PathVariable("id") int idVisita,
+            @RequestParam double latitud,
+            @RequestParam double longitud) {
+
+        return mapper.toResponse(
+                visitaUseCase.registrarUbicacion(idVisita, latitud, longitud));
+
+    }
+    
+    @PutMapping("/{id}/calcularTiempoVisita")
+    public long calcularTiempoVisita(@PathVariable("id") int idVisita) {
+
+        return visitaUseCase.calcularTiempoVisita(idVisita);
+
+    }
+    
+    @PutMapping("/{id}/agregarObservacion")
+    public VisitaResponseDto agregarObservacion(
+            @PathVariable("id") int idVisita,
+            @RequestParam String observacion) {
+
+        return mapper.toResponse(
+                visitaUseCase.agregarObservacion(idVisita, observacion));
+
     }
 
 }

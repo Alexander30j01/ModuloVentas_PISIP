@@ -39,4 +39,24 @@ public class SolicitudCreditoUseCaseImpl implements ISolicitudCreditoUseCase{
 		
 	}
 
+	@Override
+	public SolicitudCredito registrar(SolicitudCredito solicitudCredito) {
+
+		 return repositorio.registrar(solicitudCredito);
+
+	}
+	
+	@Override
+	public SolicitudCredito aprobar(int idSolicitudCredito) {
+
+	    return repositorio.aprobar(idSolicitudCredito);
+
+	}
+	
+	@Override
+	public SolicitudCredito rechazar(int idSolicitudCredito) {
+
+	    return repositorio.rechazar(idSolicitudCredito);
+
+	}
 }

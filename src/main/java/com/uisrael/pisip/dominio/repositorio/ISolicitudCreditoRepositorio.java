@@ -14,5 +14,11 @@ public interface ISolicitudCreditoRepositorio {
 	List<SolicitudCredito > listarTodo();
 
 	void eliminar(int idSolicitudCredito );
+	
+	SolicitudCredito registrar(SolicitudCredito solicitudCredito);
+	
+	SolicitudCredito aprobar(int idSolicitudCredito);
+	
+	SolicitudCredito rechazar(int idSolicitudCredito);
 
 }

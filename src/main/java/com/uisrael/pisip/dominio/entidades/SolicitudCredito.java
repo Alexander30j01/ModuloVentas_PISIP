@@ -39,5 +39,16 @@ public class SolicitudCredito {
 	public void setEstadoAprobacion(String estadoAprobacion) {
 		this.estadoAprobacion = estadoAprobacion;
 	}
-
+	
+	public void registrar() {
+	    this.estadoAprobacion = "PENDIENTE";
+	}
+	
+	public void aprobar() {
+	    this.estadoAprobacion = "APROBADO";
+	}
+	
+	public void rechazar() {
+	    this.estadoAprobacion = "RECHAZADO";
+	}
 }

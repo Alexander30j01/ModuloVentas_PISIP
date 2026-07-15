@@ -42,5 +42,145 @@ public class UsuariosRepositorioImpl implements IUsuariosRepositorio {
 	public void eliminar(int idUsuarios) {
 		jpaRepositorio.deleteById(idUsuarios);
 	}
+	
+	@Override
+	public Usuarios iniciarSesion(int idUsuario) {
+
+	    Usuarios usuario = buscarPorId(idUsuario)
+	            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+	    usuario.iniciarSesion();
+
+	    UsuariosEntity entidad = entityMapper.toEntity(usuario);
+
+	    UsuariosEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public Usuarios cerrarSesion(int idUsuario) {
+
+	    Usuarios usuario = buscarPorId(idUsuario)
+	            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+	    usuario.cerrarSesion();
+
+	    UsuariosEntity entidad = entityMapper.toEntity(usuario);
+
+	    UsuariosEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public Usuarios actualizarPerfil(int idUsuario, Usuarios usuario) {
+
+	    Usuarios usuarioActual = buscarPorId(idUsuario)
+	            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+	    usuarioActual.actualizarPerfil(
+	            usuario.getNombre(),
+	            usuario.getApellido(),
+	            usuario.getCorreoUsuario());
+
+	    UsuariosEntity entidad = entityMapper.toEntity(usuarioActual);
+
+	    UsuariosEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public Usuarios cambiarContrasena(int idUsuario, String nuevaContrasena) {
+
+	    Usuarios usuario = buscarPorId(idUsuario)
+	            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+	    usuario.cambiarContrasena(nuevaContrasena);
+
+	    UsuariosEntity entidad = entityMapper.toEntity(usuario);
+
+	    UsuariosEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public Usuarios asignarRol(int idUsuario, String rol) {
+
+	    Usuarios usuario = buscarPorId(idUsuario)
+	            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+	    usuario.asignarRol(rol);
+
+	    UsuariosEntity entidad = entityMapper.toEntity(usuario);
+
+	    UsuariosEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public Usuarios asignarRegion(int idUsuario, String region) {
+
+	    Usuarios usuario = buscarPorId(idUsuario)
+	            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+	    usuario.asignarRegion(region);
+
+	    UsuariosEntity entidad = entityMapper.toEntity(usuario);
+
+	    UsuariosEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public Usuarios activar(int idUsuario) {
+
+	    Usuarios usuario = buscarPorId(idUsuario)
+	            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+	    usuario.activar();
+
+	    UsuariosEntity entidad = entityMapper.toEntity(usuario);
+
+	    UsuariosEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	    
+	    
+	}
+	
+	@Override
+	public Usuarios desactivar(int idUsuario) {
+
+	    Usuarios usuario = buscarPorId(idUsuario)
+	            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+	    usuario.desactivar();
+
+	    UsuariosEntity entidad = entityMapper.toEntity(usuario);
+
+	    UsuariosEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public Usuarios generarReporteVisitas(int idUsuario) {
+
+	    Usuarios usuario = buscarPorId(idUsuario)
+	            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+	    usuario.generarReporteVisitas();
+
+	    UsuariosEntity entidad = entityMapper.toEntity(usuario);
+
+	    UsuariosEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
 
 }

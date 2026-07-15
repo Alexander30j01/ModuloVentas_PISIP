@@ -43,4 +43,72 @@ public class VisitaRepositorioImpl implements IVisitaRepositorio {
 	public void eliminar(int idVisita) {
 		jpaRepositorio.deleteById(idVisita);
 	}
+	@Override
+	public Visita registrarIngreso(int idVisita) {
+
+	    Visita visita = buscarPorId(idVisita)
+	            .orElseThrow(() -> new RuntimeException("Visita no encontrada"));
+
+	    visita.registrarIngreso();
+
+	    VisitaEntity entidad = entityMapper.toEntity(visita);
+
+	    VisitaEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public Visita registrarSalida(int idVisita) {
+
+	    Visita visita = buscarPorId(idVisita)
+	            .orElseThrow(() -> new RuntimeException("Visita no encontrada"));
+
+	    visita.registrarSalida();
+
+	    VisitaEntity entidad = entityMapper.toEntity(visita);
+
+	    VisitaEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public Visita registrarUbicacion(int idVisita, double latitud, double longitud) {
+
+	    Visita visita = buscarPorId(idVisita)
+	            .orElseThrow(() -> new RuntimeException("Visita no encontrada"));
+
+	    visita.registrarUbicacion(latitud, longitud);
+
+	    VisitaEntity entidad = entityMapper.toEntity(visita);
+
+	    VisitaEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public long calcularTiempoVisita(int idVisita) {
+
+	    Visita visita = buscarPorId(idVisita)
+	            .orElseThrow(() -> new RuntimeException("Visita no encontrada"));
+
+	    return visita.calcularTiempoVisita();
+	}
+	
+	@Override
+	public Visita agregarObservacion(int idVisita, String observacion) {
+
+	    Visita visita = buscarPorId(idVisita)
+	            .orElseThrow(() -> new RuntimeException("Visita no encontrada"));
+
+	    visita.agregarObservacion(observacion);
+
+	    VisitaEntity entidad = entityMapper.toEntity(visita);
+
+	    VisitaEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
 }
