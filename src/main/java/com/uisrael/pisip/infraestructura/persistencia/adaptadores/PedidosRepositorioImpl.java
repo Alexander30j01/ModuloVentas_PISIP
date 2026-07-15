@@ -3,12 +3,14 @@ package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Component;
+
 import com.uisrael.pisip.dominio.entidades.Pedidos;
 import com.uisrael.pisip.dominio.repositorio.IPedidosRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.PedidoEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.IPedidosJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.IPedidosJpaRepositorio;
-
+@Component
 public class PedidosRepositorioImpl implements IPedidosRepositorio {
 
 	private final IPedidosJpaRepositorio jpaRepositorio;

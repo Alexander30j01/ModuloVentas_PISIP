@@ -3,14 +3,13 @@ package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import com.uisrael.pisip.dominio.entidades.Producto;
 import com.uisrael.pisip.dominio.repositorio.IProductoRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.ProductoEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.IProductoJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.IProductoJpaRepositorio;
-
-@Service
+@Component
 public class ProductoRepositorioImpl implements IProductoRepositorio {
 
 	private final IProductoJpaRepositorio jpaRepositorio;

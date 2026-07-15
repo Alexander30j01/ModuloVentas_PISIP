@@ -2,12 +2,14 @@ package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 
 import java.util.Optional;
 
+import org.springframework.stereotype.Component;
+
 import com.uisrael.pisip.dominio.entidades.Permiso;
 import com.uisrael.pisip.dominio.repositorio.IPermisoRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.PermisoEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.IPermisoJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.IPermisosJpaRepositorio;
-
+@Component
 public class PermisoRepositorioImpl implements IPermisoRepositorio {
 
 	private final IPermisosJpaRepositorio jpaRepositorio;
