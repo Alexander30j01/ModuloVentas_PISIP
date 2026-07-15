@@ -1,5 +1,5 @@
 package com.uisrael.pisip.dominio.entidades;
-
+//Franklin
 public class Cliente {
 	private int idCliente;
 	private String ruc;
