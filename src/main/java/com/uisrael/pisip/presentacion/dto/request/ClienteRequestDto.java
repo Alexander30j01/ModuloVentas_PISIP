@@ -4,9 +4,9 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class ClientesRequestDto {
+public class ClienteRequestDto {
 	
-	private int idClientes;
+	private int idCliente;
 	@NotBlank
 	private String ruc;
 	@NotBlank
