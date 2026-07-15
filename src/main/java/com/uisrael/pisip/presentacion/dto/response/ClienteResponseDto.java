@@ -1,6 +1,6 @@
-package com.uisrael.pisip.dominio.entidades;
-//franklinA
-public class Cliente {
+package com.uisrael.pisip.presentacion.dto.response;
+
+public class ClienteResponseDto {
 	private int idCliente;
 	private String ruc;
 	private String telefono;
@@ -11,24 +11,6 @@ public class Cliente {
 	private String latitude;
 	private String longitude;
 	private boolean estado;
-
-	public Cliente(int idCliente, String ruc, String telefono, String nombreComercial, String nombre, String apellido,
-			String direccion, String latitude, String longitude, boolean estado) {
-		super();
-		this.idCliente = idCliente;
-		this.ruc = ruc;
-		this.telefono = telefono;
-		this.nombreComercial = nombreComercial;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.direccion = direccion;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.estado = estado;
-	}
-
-	public Cliente() {
-	}
 
 	public int getIdCliente() {
 		return idCliente;

@@ -1,12 +1,11 @@
-package com.uisrael.pisip.dominio.repositorio;
+package com.uisrael.pisip.aplicacion.casouso.entrada;
 
 import java.util.List;
 
 import com.uisrael.pisip.dominio.entidades.Cliente;
 import com.uisrael.pisip.dominio.entidades.Pedidos;
 
-public interface IClienteRepositorio {
-
+public interface IClienteUseCase {
 	Cliente registrar(Cliente cliente);
 
 	Cliente actualizar(Cliente cliente);
