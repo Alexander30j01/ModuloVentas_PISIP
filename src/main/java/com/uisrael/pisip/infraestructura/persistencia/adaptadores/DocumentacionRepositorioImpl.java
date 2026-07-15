@@ -1,5 +1,7 @@
 package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Component;
 
 import com.uisrael.pisip.dominio.entidades.Documentacion;
@@ -27,6 +29,17 @@ public class DocumentacionRepositorioImpl implements IDocumentacionRepositorio {
 		DocumentacionEntity entity = entityMapper.toEntity(documento);
 		DocumentacionEntity guardado = jpaRepositorio.save(entity);
 		return entityMapper.toDomain(guardado);
+	}
+
+	@Override
+	public Optional<Documentacion> obtenerPorId(int idDocumentacion) {
+		return jpaRepositorio.findById(idDocumentacion).map(entityMapper::toDomain);
+	}
+
+	@Override
+	public void eliminar(int idDocumentacion) {
+		jpaRepositorio.deleteById(idDocumentacion);
+
 	}
 
 }

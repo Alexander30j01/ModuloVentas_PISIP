@@ -2,13 +2,14 @@ package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 
 import java.util.List;
 import java.util.Optional;
-
+import org.springframework.stereotype.Component;
 import com.uisrael.pisip.dominio.entidades.Usuarios;
 import com.uisrael.pisip.dominio.repositorio.IUsuariosRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.UsuariosEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.IUsuariosJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.IUsuariosJpaRepositorio;
 
+@Component
 public class UsuariosRepositorioImpl implements IUsuariosRepositorio {
 	
 	private final IUsuariosJpaRepositorio jpaRepositorio;

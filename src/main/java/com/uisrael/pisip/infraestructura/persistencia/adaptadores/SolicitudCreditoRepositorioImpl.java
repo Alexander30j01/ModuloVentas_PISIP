@@ -1,14 +1,17 @@
 package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 
 import java.util.List;
+
 import java.util.Optional;
+
+import org.springframework.stereotype.Component;
 
 import com.uisrael.pisip.dominio.entidades.SolicitudCredito;
 import com.uisrael.pisip.dominio.repositorio.ISolicitudCreditoRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.SolicitudCreditoEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.ISolicitudCreditoJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.ISolicitudCreditoJpaRepositorio;
-
+@Component
 public class SolicitudCreditoRepositorioImpl implements ISolicitudCreditoRepositorio{
 	
 	private final ISolicitudCreditoJpaRepositorio jpaRepositorio;
