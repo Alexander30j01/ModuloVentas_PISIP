@@ -13,6 +13,7 @@ public class ProductoEntity {
 	private int idProductos;
 	private String nombreProductos;
 	private String descripcion;
+	private String codigoSku;
 	private int stock;
 	private boolean estado;
 }

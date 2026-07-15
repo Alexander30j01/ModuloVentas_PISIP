@@ -8,81 +8,63 @@ import com.uisrael.pisip.dominio.repositorio.IProductoRepositorio;
 @Service
 public class ProductoUseCaseImpl implements IProductoUseCase {
 
-    private final IProductoRepositorio repositorio;
+	private final IProductoRepositorio repositorio;
 
-    public ProductoUseCaseImpl(IProductoRepositorio repositorio) {
-        this.repositorio = repositorio;
+	public ProductoUseCaseImpl(IProductoRepositorio repositorio) {
+		this.repositorio = repositorio;
+	}
+
+	@Override
+	public Producto registrar(Producto producto) {
+		if (producto.getNombreProductos() == null || producto.getNombreProductos().isEmpty()) {
+			throw new IllegalArgumentException("El nombre del producto es obligatorio.");
+		}
+		return repositorio.registrar(producto);
+	}
+
+	@Override
+	public Producto actualizar(Producto producto) {
+		// TODO Auto-generated method stub
+		return repositorio.actualizar(producto);
+	}
+
+	@Override
+	public void aumentarStock(int id, int cantidad) {
+		Producto producto = repositorio.buscarPorId(id);
+		if (producto == null)
+			throw new RuntimeException("Producto no encontrado");
+		producto.setStock(producto.getStock() + cantidad);
+		repositorio.actualizarStock(id, producto.getStock());
+	}
+
+	@Override
+	public void disminuirStock(int id, int cantidad) {
+		Producto producto = repositorio.buscarPorId(id);
+		if (producto == null)
+			throw new RuntimeException("Producto no encontrado");
+
+		// Regla de negocio: Validar stock suficiente
+		if (producto.getStock() < cantidad) {
+			throw new IllegalStateException("Stock insuficiente para la venta.");
+		}
+		producto.setStock(producto.getStock() - cantidad);
+		repositorio.actualizarStock(id, producto.getStock());
+	}
+
+	@Override
+	public float consultarPrecio(int id) {
+		return (float) repositorio.consultarPrecioActual(id);
+	}
+
+	@Override
+	public void activar(int id) {
+		repositorio.cambiarEstado(id, true);
     }
 
-    @Override
-    public Producto registrar(Producto producto) {
-        producto.setEstado(true); // Por defecto activo
-        return repositorio.guardar(producto);
-    }
+	@Override
+	public void desactivar(int id) {
+		repositorio.cambiarEstado(id, false);
 
-    @Override
-    public Producto actualizar(Producto producto) {
-        return repositorio.guardar(producto);
-    }
-
-    @Override
-    public void aumentarStock(int id, int cantidad) {
-        Producto p = repositorio.buscarPorId(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
-        p.setStock(p.getStock() + cantidad);
-        repositorio.guardar(p);
-    }
-
-    @Override
-    public void disminuirStock(int id, int cantidad) {
-        Producto p = repositorio.buscarPorId(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
-        if (p.getStock() < cantidad) throw new RuntimeException("Stock insuficiente");
-        p.setStock(p.getStock() - cantidad);
-        repositorio.guardar(p);
-    }
-
-    @Override
-    public float consultarPrecio(int id) {
-        // Asumiendo que quisieras obtenerlo de una tabla de precios o del mismo producto
-        return 0.0f; // Aquí integrarías tu lógica de PrecioRepositorio
-    }
-
-    @Override
-    public void activar(int id) {
-        Producto p = repositorio.buscarPorId(id).orElseThrow();
-        p.setEstado(true);
-        repositorio.guardar(p);
-    }
-
-    @Override
-    public void desactivar(int id) {
-        Producto p = repositorio.buscarPorId(id).orElseThrow();
-        p.setEstado(false);
-        repositorio.guardar(p);
-    }
+	}
 
 }
-
-/*
- * private final IProductoRepositorio repositorio;
- * 
- * 
- * public ProductoUseCaseImpl(IProductoRepositorio repositorio) { super();
- * this.repositorio = repositorio; }
- * 
- * @Override public Producto guardar(Producto nuevaProducto) { // TODO
- * Auto-generated method stub return null; }
- * 
- * @Override public Producto buscarPorId(int idProducto) { return
- * repositorio.buscarPorId(idProducto).orElseThrow(()->new
- * RuntimeException("Producto no encontrado")); }
- * 
- * @Override public List<Producto> listarTodos() { return
- * repositorio.listarTodo(); }
- * 
- * @Override public void eliminar(int idProducto) { // TODO Auto-generated
- * method stub
- * 
- * }
- * 
- * }
- */

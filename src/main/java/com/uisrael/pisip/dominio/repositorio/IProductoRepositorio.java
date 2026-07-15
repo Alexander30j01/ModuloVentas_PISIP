@@ -1,19 +1,17 @@
 package com.uisrael.pisip.dominio.repositorio;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.uisrael.pisip.dominio.entidades.Producto;
 
 public interface IProductoRepositorio {
-	
-	Producto guardar(Producto nuevoproducto);
 
-	Optional<Producto> buscarPorId(int idProducto);
-
-	List<Producto> listarTodo();
-
-	void eliminar(int idProducto);
-	void actualizar(Producto producto);
+	Producto registrar(Producto nuevoproducto);
+	Producto actualizar(Producto nuevoproducto);
+	void cambiarEstado(int idProducto, boolean estado);
+	void actualizarStock(int idProducto, int stock);
+	double consultarPrecioActual(int idProducto);
+	Producto buscarPorId(int idProducto);
+	List<Producto> listarTodos();
 
 }

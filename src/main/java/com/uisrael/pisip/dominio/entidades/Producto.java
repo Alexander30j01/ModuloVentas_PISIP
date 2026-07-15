@@ -4,6 +4,7 @@ public class Producto {
 	private int idProductos;
 	private String nombreProductos;
 	private String descripcion;
+	private String codigoSku;
 	private int stock;
 	private boolean estado;
 	
@@ -12,11 +13,13 @@ public class Producto {
 	public Producto() {
 		super();
 	}
-	public Producto(int idProductos, String nombreProductos, String descripcion, int stock, boolean estado) {
+	public Producto(int idProductos, String nombreProductos, String descripcion, String codigoSku, int stock,
+			boolean estado) {
 		super();
 		this.idProductos = idProductos;
 		this.nombreProductos = nombreProductos;
 		this.descripcion = descripcion;
+		this.codigoSku = codigoSku;
 		this.stock = stock;
 		this.estado = estado;
 	}
@@ -37,6 +40,12 @@ public class Producto {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	public String getCodigoSku() {
+		return codigoSku;
+	}
+	public void setCodigoSku(String codigoSku) {
+		this.codigoSku = codigoSku;
 	}
 	public int getStock() {
 		return stock;
