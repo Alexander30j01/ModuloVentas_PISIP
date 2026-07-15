@@ -1,6 +1,7 @@
 package com.uisrael.pisip.presentacion.dto.request;
 
 import java.time.Instant;
+import jakarta.validation.constraints.NotBlank;
 
 import lombok.Data;
 
