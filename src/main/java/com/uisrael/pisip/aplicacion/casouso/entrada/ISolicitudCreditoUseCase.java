@@ -13,5 +13,10 @@ public interface ISolicitudCreditoUseCase {
 	List<SolicitudCredito> listarTodos();
 
 	void eliminar(int idSolicitudCredito);
+	
+	SolicitudCredito registrar(SolicitudCredito solicitudCredito);
 
+	SolicitudCredito aprobar(int idSolicitudCredito);
+	
+	SolicitudCredito rechazar(int idSolicitudCredito);
 }

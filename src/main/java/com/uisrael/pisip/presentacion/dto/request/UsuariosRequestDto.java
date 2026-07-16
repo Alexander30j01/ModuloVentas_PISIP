@@ -5,15 +5,29 @@ import lombok.Data;
 
 @Data
 public class UsuariosRequestDto {
-	@NotBlank
-	private int idUsuario;
-	@NotBlank
-	private String nombre;
-	@NotBlank
-	private String apellido;
-	@NotBlank
-	private String rol;
-	@NotBlank
-	private String correoUsuario;
+
+    private int idUsuario;
+
+    @NotBlank
+    private String nombre;
+
+    @NotBlank
+    private String apellido;
+
+    @NotBlank
+    private String rol;
+
+    @NotBlank
+    private String correoUsuario;
+
+    @NotBlank
+    private String contrasena;
+
+    @NotBlank
+    private String region;
+
+    private boolean activo;
+    private boolean sesionActiva;
+    private int numeroVisitas;
 
 }

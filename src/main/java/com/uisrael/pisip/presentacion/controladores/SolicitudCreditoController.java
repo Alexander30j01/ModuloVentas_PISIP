@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -48,6 +49,32 @@ public class SolicitudCreditoController {
 	public ResponseEntity<Void> eliminar(@PathVariable int idSolicitudCredito) {
 		solicitudCreditoUseCase.eliminar(idSolicitudCredito);
 		return ResponseEntity.noContent().build();
+	}
+	
+	@PostMapping("/registrar")
+	@ResponseStatus(HttpStatus.CREATED)
+	public SolicitudCreditoResponseDto registrar(
+	        @Valid @RequestBody SolicitudCreditoRequestDto request) {
+
+	    return mapper.toResponse(
+	            solicitudCreditoUseCase.registrar(
+	                    mapper.toDomain(request)));
+	}
+	
+	@PutMapping("/{id}/aprobar")
+	public SolicitudCreditoResponseDto aprobar(@PathVariable("id") int idSolicitudCredito) {
+
+	    return mapper.toResponse(
+	            solicitudCreditoUseCase.aprobar(idSolicitudCredito));
+
+	}
+	
+	@PutMapping("/{id}/rechazar")
+	public SolicitudCreditoResponseDto rechazar(@PathVariable("id") int idSolicitudCredito) {
+
+	    return mapper.toResponse(
+	            solicitudCreditoUseCase.rechazar(idSolicitudCredito));
+
 	}
 
 }

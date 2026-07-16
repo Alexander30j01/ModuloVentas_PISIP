@@ -47,5 +47,47 @@ public class SolicitudCreditoRepositorioImpl implements ISolicitudCreditoReposit
 		
 	}
 	
+	@Override
+	public SolicitudCredito registrar(SolicitudCredito solicitudCredito) {
+
+	    solicitudCredito.registrar();
+
+	    SolicitudCreditoEntity entidad = entityMapper.toEntity(solicitudCredito);
+
+	    SolicitudCreditoEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public SolicitudCredito aprobar(int idSolicitudCredito) {
+
+	    SolicitudCredito solicitud = buscarPorId(idSolicitudCredito)
+	            .orElseThrow(() -> new RuntimeException("Solicitud no encontrada"));
+
+	    solicitud.aprobar();
+
+	    SolicitudCreditoEntity entidad = entityMapper.toEntity(solicitud);
+
+	    SolicitudCreditoEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
+	@Override
+	public SolicitudCredito rechazar(int idSolicitudCredito) {
+
+	    SolicitudCredito solicitud = buscarPorId(idSolicitudCredito)
+	            .orElseThrow(() -> new RuntimeException("Solicitud no encontrada"));
+
+	    solicitud.rechazar();
+
+	    SolicitudCreditoEntity entidad = entityMapper.toEntity(solicitud);
+
+	    SolicitudCreditoEntity guardado = jpaRepositorio.save(entidad);
+
+	    return entityMapper.toDominio(guardado);
+	}
+	
 
 }

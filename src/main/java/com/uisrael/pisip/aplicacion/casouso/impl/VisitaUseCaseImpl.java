@@ -35,4 +35,38 @@ public class VisitaUseCaseImpl implements IVisitaUseCase {
         repositorio.eliminar(idVisita);
     }
 
+    @Override
+    public Visita registrarIngreso(int idVisita) {
+
+        return repositorio.registrarIngreso(idVisita);
+
+    }
+    
+    @Override
+    public Visita registrarSalida(int idVisita) {
+
+        return repositorio.registrarSalida(idVisita);
+
+    }
+    
+    @Override
+    public Visita registrarUbicacion(int idVisita, double latitud, double longitud) {
+
+        return repositorio.registrarUbicacion(idVisita, latitud, longitud);
+
+    }
+    
+    @Override
+    public long calcularTiempoVisita(int idVisita) {
+
+        return repositorio.calcularTiempoVisita(idVisita);
+
+    }
+    
+    @Override
+    public Visita agregarObservacion(int idVisita, String observacion) {
+
+        return repositorio.agregarObservacion(idVisita, observacion);
+
+    }
 }

@@ -1,6 +1,7 @@
 package com.uisrael.pisip.dominio.entidades;
 
 import java.time.Instant;
+import java.time.Duration;
 
 public class Visita {
 
@@ -82,6 +83,33 @@ public class Visita {
 
 	public void setEstado(boolean estado) {
 		this.estado = estado;
+	}
+	public void registrarIngreso() {
+	    this.ingreso = Instant.now();
+	}
+	
+	public void registrarSalida() {
+	    this.salida = Instant.now();
+	}
+	
+	public void registrarUbicacion(double latitud, double longitud) {
+
+	    this.latitud = latitud;
+	    this.longitud = longitud;
+
+	}
+	
+	public long calcularTiempoVisita() {
+
+	    if (ingreso != null && salida != null) {
+	        return Duration.between(ingreso, salida).getSeconds();
+	    }
+
+	    return 0;
+	}
+	
+	public void agregarObservacion(String observacion) {
+	    this.observacion = observacion;
 	}
 
 }
