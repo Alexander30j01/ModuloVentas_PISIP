@@ -6,10 +6,9 @@ import com.uisrael.pisip.aplicacion.casouso.entrada.IDetallePedidoUseCase;
 import com.uisrael.pisip.dominio.entidades.DetallePedido;
 import com.uisrael.pisip.dominio.repositorio.IDetallePedidoRepositorio;
 
-public class DetallePedidoUseCaseImpl implements IDetallePedidoUseCase{
-	
+public class DetallePedidoUseCaseImpl implements IDetallePedidoUseCase {
+
 	private final IDetallePedidoRepositorio repositorio;
-	
 
 	public DetallePedidoUseCaseImpl(IDetallePedidoRepositorio repositorio) {
 		super();
@@ -17,26 +16,24 @@ public class DetallePedidoUseCaseImpl implements IDetallePedidoUseCase{
 	}
 
 	@Override
-	public DetallePedido guardar(DetallePedido nuevaDetallePedido) {
-		// TODO Auto-generated method stub
-		return null;
+	public DetallePedido guardar(DetallePedido detallePedido) {
+		return repositorio.guardar(detallePedido);
 	}
 
 	@Override
 	public DetallePedido buscarPorId(int idDetallePedido) {
-		return repositorio.buscarPorId(idDetallePedido).orElseThrow(()->new 
-	RuntimeException("Detalle no encontrado"));
+		return repositorio.buscarPorId(idDetallePedido).orElseThrow(
+				() -> new RuntimeException("No se encontro el detalle de pedido con ID: " + idDetallePedido));
 	}
 
 	@Override
 	public List<DetallePedido> listarTodos() {
-		return repositorio.listarTodo();
+		return repositorio.listarTodos();
 	}
 
 	@Override
-	public void eliminar(int idDetallePedido) {
-		// TODO Auto-generated method stub
-		
+	public void cambiarEstado(DetallePedido detallePedido, boolean aprobado) {
+		repositorio.cambiarEstado(detallePedido, aprobado);
 	}
 
 }

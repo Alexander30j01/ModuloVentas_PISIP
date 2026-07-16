@@ -6,13 +6,13 @@ import java.util.Optional;
 import com.uisrael.pisip.dominio.entidades.DetallePedido;
 
 public interface IDetallePedidoRepositorio {
-	
-	DetallePedido guardar(DetallePedido nuevodetallePedido);
+
+	DetallePedido guardar(DetallePedido detallePedido);
 
 	Optional<DetallePedido> buscarPorId(int idDetallePedido);
 
-	List<DetallePedido> listarTodo();
+	List<DetallePedido> listarTodos();
 
-	void eliminar(int idDetallePedido);
+	void cambiarEstado(DetallePedido detallePedido, boolean aprobado);
 
 }

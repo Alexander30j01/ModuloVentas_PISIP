@@ -6,12 +6,12 @@ import com.uisrael.pisip.dominio.entidades.DetallePedido;
 
 public interface IDetallePedidoUseCase {
 	
-	DetallePedido guardar(DetallePedido nuevaDetallePedido);
+	DetallePedido guardar(DetallePedido detallePedido);
 
 	DetallePedido buscarPorId(int idDetallePedido);
 
 	List<DetallePedido> listarTodos();
 
-	void eliminar(int idDetallePedido);
+	void cambiarEstado(DetallePedido detallePedido, boolean aprobado);
 
 }

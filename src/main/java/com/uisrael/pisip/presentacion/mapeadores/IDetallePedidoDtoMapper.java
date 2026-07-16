@@ -7,10 +7,10 @@ import com.uisrael.pisip.presentacion.dto.request.DetallePedidoRequestDto;
 import com.uisrael.pisip.presentacion.dto.response.DetallePedidoResponseDto;
 
 @Mapper(componentModel = "spring")
-public interface DetallePedidoDtoMapper {
+public interface IDetallePedidoDtoMapper {
 
 	DetallePedido toDomain(DetallePedidoRequestDto dto);
 
-	DetallePedidoResponseDto toResponse(DetallePedido detallePedidoPojo);
+	DetallePedidoResponseDto toResponseDto(DetallePedido detallePedidoPojo);
 
 }

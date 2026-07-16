@@ -11,5 +11,9 @@ public class DetallePedidoRequestDto {
 	private int cantidad;
 	@NotBlank
 	private float precioUnitario;
+	@NotBlank
+	private float subTotal;
+	@NotBlank
+	private boolean estado;
 
 }

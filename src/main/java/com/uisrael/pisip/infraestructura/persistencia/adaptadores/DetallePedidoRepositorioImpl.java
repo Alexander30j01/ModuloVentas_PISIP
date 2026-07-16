@@ -2,15 +2,14 @@ package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.stereotype.Component;
+import java.util.stream.Collectors;
 
 import com.uisrael.pisip.dominio.entidades.DetallePedido;
 import com.uisrael.pisip.dominio.repositorio.IDetallePedidoRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.DetallePedidoEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.IDetallePedidoJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.IDetallePedidoJpaRepositorio;
-@Component
+
 public class DetallePedidoRepositorioImpl implements IDetallePedidoRepositorio {
 
 	private final IDetallePedidoJpaRepositorio jpaRepositorio;
@@ -24,26 +23,31 @@ public class DetallePedidoRepositorioImpl implements IDetallePedidoRepositorio {
 	}
 
 	@Override
-	public DetallePedido guardar(DetallePedido nuevodetallePedido) {
-		DetallePedidoEntity entidad = entityMapper.toEntity(nuevodetallePedido);
-		DetallePedidoEntity guardado = jpaRepositorio.save(entidad);
-		return entityMapper.toDominio(guardado);
+	public DetallePedido guardar(DetallePedido detallePedido) {
+		DetallePedidoEntity entity = entityMapper.toEntity(detallePedido);
+		DetallePedidoEntity savedEntity = jpaRepositorio.save(entity);
+		return entityMapper.toDomain(savedEntity);
 	}
 
 	@Override
 	public Optional<DetallePedido> buscarPorId(int idDetallePedido) {
-		return jpaRepositorio.findById(idDetallePedido).map(entityMapper::toDominio);
+
+		return jpaRepositorio.findById(idDetallePedido).map(entityMapper::toDomain);
+
 	}
 
 	@Override
-	public List<DetallePedido> listarTodo() {
-		return jpaRepositorio.findAll().stream().map(entityMapper::toDominio).toList();
+	public List<DetallePedido> listarTodos() {
+		return jpaRepositorio.findAll().stream().map(entityMapper::toDomain).collect(Collectors.toList());
 	}
 
 	@Override
-	public void eliminar(int idDetallePedido) {
-		jpaRepositorio.deleteById(idDetallePedido);
+	public void cambiarEstado(DetallePedido detallePedido, boolean aprobado) {
+		var detallePedidoOptional = jpaRepositorio.findById(detallePedido.getIdDetallePedidos());
+		detallePedidoOptional.ifPresent(detallePedidoJpa -> {
+			detallePedidoJpa.setEstado(aprobado);
+			jpaRepositorio.save(detallePedidoJpa);
+		});
 
 	}
-
 }

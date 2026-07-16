@@ -8,8 +8,8 @@ import com.uisrael.pisip.infraestructura.persistencia.jpa.DetallePedidoEntity;
 @Mapper(componentModel = "spring")
 public interface IDetallePedidoJpaMapper {
 	
-	DetallePedido toDominio(DetallePedidoEntity entity);
+	DetallePedido toDomain(DetallePedidoEntity entity);
 
-	DetallePedidoEntity toEntity(DetallePedido detallepedido);
+	DetallePedidoEntity toEntity(DetallePedido detallePedidoPojo);
 
 }
