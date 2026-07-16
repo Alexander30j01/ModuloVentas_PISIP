@@ -31,9 +31,13 @@ public class CategoriaRepositorioImpl implements ICategoriaRepositorio {
 
 	@Override
 	public void cambiarEstado(Categoria categoria, boolean activo) {
-		
-		
-		
+
+		var categoriaOptional = jpaRepositorio.findById(categoria.getIdCategoria());
+		categoriaOptional.ifPresent(categoriaJpa -> {
+			categoriaJpa.setEstado(activo);
+			jpaRepositorio.save(categoriaJpa);
+		});
+
 	}
 
 }
