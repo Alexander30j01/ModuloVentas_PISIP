@@ -17,5 +17,6 @@ public class RegionEntity {
 	private int idRegion;
 	private String nombre;
 	private boolean estado;
+	
 
 }

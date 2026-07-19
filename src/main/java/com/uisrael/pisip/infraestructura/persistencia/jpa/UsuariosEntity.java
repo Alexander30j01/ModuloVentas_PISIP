@@ -34,7 +34,7 @@ public class UsuariosEntity {
     private RolEntity fkRolEntity;
     
     @ManyToOne
-    @JoinColumn(name = "fk_region")
-    private RegionEntity fkRegionEntity;
+    @JoinColumn(name = "fk_usuario_region")
+    private UsuarioRegionEntity fkUsuarioRegionEntity;
 
 }
