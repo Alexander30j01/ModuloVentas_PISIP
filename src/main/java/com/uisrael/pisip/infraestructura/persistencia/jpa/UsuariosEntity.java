@@ -1,7 +1,11 @@
 package com.uisrael.pisip.infraestructura.persistencia.jpa;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -11,6 +15,7 @@ import lombok.Data;
 public class UsuariosEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
 
     private String nombre;
@@ -22,5 +27,14 @@ public class UsuariosEntity {
     private boolean activo;
     private boolean sesionActiva;
     private int numeroVisitas;
+    
+    
+    @ManyToOne
+    @JoinColumn(name = "fk_rol")
+    private RolEntity fkRolEntity;
+    
+    @ManyToOne
+    @JoinColumn(name = "fk_region")
+    private RegionEntity fkRegionEntity;
 
 }

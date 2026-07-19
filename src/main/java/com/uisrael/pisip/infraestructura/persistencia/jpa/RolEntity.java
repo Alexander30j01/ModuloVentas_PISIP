@@ -1,7 +1,10 @@
 package com.uisrael.pisip.infraestructura.persistencia.jpa;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -15,5 +18,10 @@ public class RolEntity {
 	private String nombre;
 	private String descripcion;
 	private boolean estado;
+	
+	@OneToMany(mappedBy = "fkRolEntity")
+	private List<RolPermisoEntity> listaRolPermiso;
+
+	
 
 }
