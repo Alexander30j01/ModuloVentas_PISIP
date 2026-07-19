@@ -1,17 +1,25 @@
 package com.uisrael.pisip.aplicacion.casouso.entrada;
 
-import java.util.List;
-
+import com.uisrael.pisip.dominio.entidades.DetallePedido;
 import com.uisrael.pisip.dominio.entidades.Pedidos;
 
 public interface IPedidosUseCase {
 	
-	Pedidos guardar(Pedidos nuevaPedidos);
+	Pedidos crearPedido(Pedidos pedido);
 
-	Pedidos buscarPorId(int idPedidos);
+	Pedidos agregarDetalle(int idPedido, DetallePedido detalle);
 
-	List<Pedidos> listarTodos();
+	Pedidos eliminarDetalle(int idPedido, int idDetalle);
 
-	void eliminar(int idPedidos);
+	Pedidos calcularTotal(int idPedido);
 
+	boolean validarStock(int idPedido);
+
+	Pedidos aprobarPedido(int idPedido);
+
+	Pedidos rechazarPedido(int idPedido);
+
+	Pedidos cambiarEstado(int idPedido, String nuevoEstado);
+
+	Pedidos finalizarPedido(int idPedido);
 }

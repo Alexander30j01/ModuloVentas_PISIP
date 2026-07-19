@@ -1,13 +1,11 @@
 package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
 import com.uisrael.pisip.dominio.entidades.Pedidos;
 import com.uisrael.pisip.dominio.repositorio.IPedidosRepositorio;
-import com.uisrael.pisip.infraestructura.persistencia.jpa.PedidoEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.IPedidosJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.IPedidosJpaRepositorio;
 @Component
@@ -21,27 +19,22 @@ public class PedidosRepositorioImpl implements IPedidosRepositorio {
 		this.jpaRepositorio = jpaRepositorio;
 		this.entityMapper = entityMapper;
 	}
-
+	
 	@Override
-	public Pedidos guardar(Pedidos nuevopedidos) {
-		PedidoEntity entidad = entityMapper.toEntity(nuevopedidos);
-		PedidoEntity guardado = jpaRepositorio.save(entidad);
-		return entityMapper.toDominio(guardado);
-	}
+    public Pedidos guardar(Pedidos pedido) {
+        var entity = entityMapper.toEntity(pedido);
+        var guardado = jpaRepositorio.save(entity);
+        return entityMapper.toDominio(guardado);
+    }
 
-	@Override
-	public Optional<Pedidos> buscarPorId(int idPedidos) {
-		return jpaRepositorio.findById(idPedidos).map(entityMapper::toDominio);
-	}
+    @Override
+    public Optional<Pedidos> buscarPorId(int idPedido) {
+        return jpaRepositorio.findById(idPedido).map(entityMapper::toDominio);
+    }
 
-	@Override
-	public List<Pedidos> listarTodo() {
-		return jpaRepositorio.findAll().stream().map(entityMapper::toDominio).toList();
-	}
-
-	@Override
-	public void eliminar(int idPedidos) {
-		jpaRepositorio.deleteById(idPedidos);
-	}
+    @Override
+    public void eliminar(int idPedido) {
+        jpaRepositorio.deleteById(idPedido);
+    }
 
 }
