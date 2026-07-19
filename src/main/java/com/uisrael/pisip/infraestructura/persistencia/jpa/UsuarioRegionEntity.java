@@ -1,7 +1,5 @@
 package com.uisrael.pisip.infraestructura.persistencia.jpa;
 
-import java.time.Instant;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,26 +10,23 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-
 @Data
-@Table(name = "visita")
-public class VisitaEntity {
+@Table(name = "usuario_region")
+public class UsuarioRegionEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idVisita;
-	private Instant ingreso;
-	private Instant salida;
-	private double latitud;
-	private double longitud;
+	private int idUsuarioRegion;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_usuario")
+	private UsuariosEntity fkUsuarioEntity;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_region")
+	private RegionEntity fkRegionEntity;
+
 	private String observacion;
 	private boolean estado;
-	
-	@ManyToOne
-	@JoinColumn(name = "fk_cliente")
-	private ClienteEntity fkClienteEntity;
-    
-    @ManyToOne
-    @JoinColumn(name = "fk_usuario")
-    private UsuariosEntity fkUsuarioEntity;
 
 }

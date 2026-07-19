@@ -1,11 +1,10 @@
 package com.uisrael.pisip.aplicacion.casouso.impl;
 
-import org.springframework.stereotype.Service;
 import com.uisrael.pisip.aplicacion.casouso.entrada.IProductoUseCase;
 import com.uisrael.pisip.dominio.entidades.Producto;
 import com.uisrael.pisip.dominio.repositorio.IProductoRepositorio;
 
-@Service
+
 public class ProductoUseCaseImpl implements IProductoUseCase {
 
     private final IProductoRepositorio repositorio;

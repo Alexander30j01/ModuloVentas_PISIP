@@ -2,7 +2,11 @@ package com.uisrael.pisip.infraestructura.persistencia.jpa;
 
 import java.sql.Date;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -11,9 +15,15 @@ import lombok.Data;
 @Table(name = "precio")
 public class PrecioEntity {
 	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int idPrecio;
 	private float precioVenta;
 	private Date fechaInicio;
 	private Date fechaFin;
 	private boolean estadoPrecios;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_producto", nullable = false)
+	private ProductoEntity producto;
+	
 }
