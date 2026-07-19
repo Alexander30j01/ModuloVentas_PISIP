@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.uisrael.pisip.aplicacion.casouso.entrada.ICategoriaUseCase;
 import com.uisrael.pisip.dominio.entidades.Categoria;
@@ -15,7 +17,8 @@ import com.uisrael.pisip.presentacion.dto.response.CategoriaResponseDto;
 import com.uisrael.pisip.presentacion.mapeadores.ICategoriaDtoMapper;
 
 import jakarta.validation.Valid;
-
+@RestController
+@RequestMapping("/api/categoria")
 public class CategoriaController {
 
 	private final ICategoriaUseCase categoriaUseCase;
