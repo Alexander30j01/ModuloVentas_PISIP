@@ -1,4 +1,4 @@
-package com.uisrael.pisip.infraestructura.persistencia.jpa;
+ package com.uisrael.pisip.infraestructura.persistencia.jpa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,18 +1,14 @@
 package com.uisrael.pisip.dominio.repositorio;
 
-import java.util.List;
 import java.util.Optional;
 
 import com.uisrael.pisip.dominio.entidades.Pedidos;
 
 public interface IPedidosRepositorio {
-	
-	Pedidos guardar(Pedidos nuevopedidos);
 
-	Optional<Pedidos> buscarPorId(int idPedidos);
+	Pedidos guardar(Pedidos pedido);
 
-	List<Pedidos> listarTodo();
+	Optional<Pedidos> buscarPorId(int idPedido);
 
-	void eliminar(int idPedidos);
-
+	void eliminar(int idPedido);
 }
