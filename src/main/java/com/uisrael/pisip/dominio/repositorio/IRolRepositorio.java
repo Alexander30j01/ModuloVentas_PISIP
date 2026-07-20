@@ -1,20 +1,28 @@
 package com.uisrael.pisip.dominio.repositorio;
 
-import com.uisrael.pisip.dominio.entidades.Rol;
 import java.util.List;
 import java.util.Optional;
 
+import com.uisrael.pisip.dominio.entidades.Rol;
+
 public interface IRolRepositorio {
-    
-    // Sirve tanto para registrar (INSERT) como para actualizar (UPDATE)
-    Rol guardar(Rol rol);
-    
-    // Usamos Optional para que tu UseCase pueda hacer el .orElseThrow() de forma limpia
-    Optional<Rol> buscarPorId(int id);
-    
-    // Lista todos los roles activos/inactivos
+
+    Rol registrar(Rol rol);
+
+    Rol actualizar(Rol rol);
+
+    void agregarPermiso(int idRol, int idPermiso);
+
+    void quitarPermiso(int idRol, int idPermiso);
+
+    void activar(int idRol);
+
+    void desactivar(int idRol);
+
+    // Métodos de consulta necesarios para el funcionamiento del sistema
+    Optional<Rol> buscarPorId(int idRol);
+
     List<Rol> listarTodos();
-    
-    // Elimina físicamente un rol de la base de datos (si la regla de negocio lo permite)
-    void eliminar(int id);
+
+
 }
