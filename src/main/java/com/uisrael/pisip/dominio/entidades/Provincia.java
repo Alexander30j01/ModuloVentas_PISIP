@@ -1,19 +1,19 @@
 package com.uisrael.pisip.dominio.entidades;
 
-public class Region {
+public class Provincia {
 
 	private int idRegion;
 	private String nombre;
 	private boolean estado;
 
-	public Region(int idRegion, String nombre, boolean estado) {
+	public Provincia(int idRegion, String nombre, boolean estado) {
 		super();
 		this.idRegion = idRegion;
 		this.nombre = nombre;
 		this.estado = estado;
 	}
 
-	public Region() {
+	public Provincia() {
 		super();
 	}
 
