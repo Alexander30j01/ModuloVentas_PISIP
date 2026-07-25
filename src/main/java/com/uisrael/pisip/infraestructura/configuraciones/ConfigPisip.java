@@ -27,7 +27,7 @@ import com.uisrael.pisip.dominio.repositorio.ICategoriaRepositorio;
 import com.uisrael.pisip.dominio.repositorio.IClienteRepositorio;
 import com.uisrael.pisip.dominio.repositorio.IDetallePedidoRepositorio;
 import com.uisrael.pisip.dominio.repositorio.IDocumentacionRepositorio;
-import com.uisrael.pisip.dominio.repositorio.IPedidosRepositorio;
+import com.uisrael.pisip.dominio.repositorio.IPedidoRepositorio;
 import com.uisrael.pisip.dominio.repositorio.IPermisoRepositorio;
 import com.uisrael.pisip.dominio.repositorio.IProductoRepositorio;
 import com.uisrael.pisip.dominio.repositorio.ISolicitudCreditoRepositorio;
@@ -109,12 +109,12 @@ public class ConfigPisip {
 
 
 	@Bean
-	IPedidosRepositorio pedidosRepositorio(IPedidosJpaRepositorio jpaRepositorio, IPedidosJpaMapper mapper) {
+	IPedidoRepositorio pedidosRepositorio(IPedidosJpaRepositorio jpaRepositorio, IPedidosJpaMapper mapper) {
 		return new PedidosRepositorioImpl(jpaRepositorio, mapper);
 	}
 
 	@Bean
-	IPedidosUseCase pedidosUseCase(IPedidosRepositorio pedidosRepositorio) {
+	IPedidosUseCase pedidosUseCase(IPedidoRepositorio pedidosRepositorio) {
 		return new PedidosUseCaseImpl(pedidosRepositorio);
 	}
 

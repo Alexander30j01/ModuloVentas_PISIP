@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.uisrael.pisip.aplicacion.casouso.entrada.IClienteUseCase;
 import com.uisrael.pisip.dominio.entidades.Cliente;
-import com.uisrael.pisip.dominio.entidades.Pedidos;
+import com.uisrael.pisip.dominio.entidades.Pedido;
 import com.uisrael.pisip.presentacion.dto.request.ClienteRequestDto;
 import com.uisrael.pisip.presentacion.dto.response.ClienteResponseDto;
 import com.uisrael.pisip.presentacion.mapeadores.IClienteDtoMapper;
@@ -48,7 +48,7 @@ public class ClienteController {
 	}
 
 	@GetMapping("/{id}/pedidos")
-	public List<Pedidos> consultarHistorial(@PathVariable int id) {
+	public List<Pedido> consultarHistorial(@PathVariable int id) {
 		return clienteUseCase.consultarHistorial(id);
 	}
 

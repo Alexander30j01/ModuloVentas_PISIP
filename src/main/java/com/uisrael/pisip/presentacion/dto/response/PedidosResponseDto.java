@@ -1,17 +1,19 @@
 package com.uisrael.pisip.presentacion.dto.response;
 
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import lombok.Data;
 
 @Data
 public class PedidosResponseDto {
 	private int idPedidos;
-	private Date fechaRegistro;
-	private float subtotal;
-	private float totalFinal;
-	private String estadoPedido;
+	private LocalDateTime fechaRegistro;
+	private BigDecimal subtotal;
+	private BigDecimal totalFinal;
+	private String estado;
 	private String metodoPago;
-	
+	private Integer idCliente;
+	private Integer idVendedor;
 
 }

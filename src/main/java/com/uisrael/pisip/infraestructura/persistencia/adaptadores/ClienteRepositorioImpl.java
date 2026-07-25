@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.uisrael.pisip.dominio.entidades.Cliente;
-import com.uisrael.pisip.dominio.entidades.Pedidos;
+import com.uisrael.pisip.dominio.entidades.Pedido;
 import com.uisrael.pisip.dominio.repositorio.IClienteRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.IClienteJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.IClienteJpaRepositorio;
@@ -53,7 +53,7 @@ public class ClienteRepositorioImpl implements IClienteRepositorio {
 	}
 
 	@Override
-	public List<Pedidos> consultarHistorial(int idCliente) {
+	public List<Pedido> consultarHistorial(int idCliente) {
 		return Collections.emptyList();
 	}
 

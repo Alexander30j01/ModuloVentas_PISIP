@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.uisrael.pisip.aplicacion.casouso.entrada.IClienteUseCase;
 import com.uisrael.pisip.dominio.entidades.Cliente;
-import com.uisrael.pisip.dominio.entidades.Pedidos;
+import com.uisrael.pisip.dominio.entidades.Pedido;
 import com.uisrael.pisip.dominio.repositorio.IClienteRepositorio;
 
 public class ClienteUseCaseImpl implements IClienteUseCase {
@@ -37,7 +37,7 @@ public class ClienteUseCaseImpl implements IClienteUseCase {
 	}
 
 	@Override
-	public List<Pedidos> consultarHistorial(int idCliente) {
+	public List<Pedido> consultarHistorial(int idCliente) {
 		return repositorio.consultarHistorial(idCliente);
 	}
 

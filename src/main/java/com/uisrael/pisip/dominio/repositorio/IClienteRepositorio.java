@@ -3,7 +3,7 @@ package com.uisrael.pisip.dominio.repositorio;
 import java.util.List;
 
 import com.uisrael.pisip.dominio.entidades.Cliente;
-import com.uisrael.pisip.dominio.entidades.Pedidos;
+import com.uisrael.pisip.dominio.entidades.Pedido;
 
 public interface IClienteRepositorio {
 
@@ -15,7 +15,7 @@ public interface IClienteRepositorio {
 
 	boolean tieneCreditoAprobado(int idCliente);
 
-	List<Pedidos> consultarHistorial(int idCliente);
+	List<Pedido> consultarHistorial(int idCliente);
 
 	void cambiarEstado(Cliente cliente, boolean activo);
 

@@ -1,23 +1,21 @@
 package com.uisrael.pisip.presentacion.dto.request;
 
-import java.sql.Date;
-
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
 @Data
 public class PedidosRequestDto {
-	@NotBlank
-	private int idPedidos;
-	@NotBlank
-	private Date fechaRegistro;
-	@NotBlank
-	private float subtotal;
-	@NotBlank
-	private float totalFinal;
-	@NotBlank
-	private String estadoPedido;
-	@NotBlank
-	private String metodoPago;
 
+	@NotNull(message = "El ID del cliente es obligatorio")
+	@Positive(message = "El ID del cliente debe ser un número positivo")
+	private Integer idCliente;
+
+	@NotNull(message = "El ID del vendedor es obligatorio")
+	@Positive(message = "El ID del vendedor debe ser un número positivo")
+	private Integer idVendedor;
+
+	@NotBlank(message = "El método de pago es obligatorio")
+	private String metodoPago;
 }

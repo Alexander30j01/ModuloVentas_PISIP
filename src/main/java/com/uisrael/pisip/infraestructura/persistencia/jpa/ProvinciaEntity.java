@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 @Table(name = "region")
-public class RegionEntity {
+public class ProvinciaEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idRegion;

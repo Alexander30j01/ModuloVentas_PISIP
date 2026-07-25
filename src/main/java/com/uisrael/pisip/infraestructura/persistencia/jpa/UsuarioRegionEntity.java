@@ -24,7 +24,7 @@ public class UsuarioRegionEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "fk_region")
-	private RegionEntity fkRegionEntity;
+	private ProvinciaEntity fkRegionEntity;
 
 	private String observacion;
 	private boolean estado;

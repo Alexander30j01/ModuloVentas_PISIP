@@ -3,7 +3,7 @@ package com.uisrael.pisip.aplicacion.casouso.entrada;
 import java.util.List;
 
 import com.uisrael.pisip.dominio.entidades.Cliente;
-import com.uisrael.pisip.dominio.entidades.Pedidos;
+import com.uisrael.pisip.dominio.entidades.Pedido;
 
 public interface IClienteUseCase {
 	Cliente registrar(Cliente cliente);
@@ -14,7 +14,7 @@ public interface IClienteUseCase {
 
 	boolean tieneCreditoAprobado(int idCliente);
 
-	List<Pedidos> consultarHistorial(int idCliente);
+	List<Pedido> consultarHistorial(int idCliente);
 
 	void cambiarEstado(Cliente cliente, boolean activo);
 
