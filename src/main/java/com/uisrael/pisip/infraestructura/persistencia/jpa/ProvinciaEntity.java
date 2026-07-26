@@ -14,7 +14,7 @@ import lombok.Data;
 public class ProvinciaEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idRegion;
+	private int idProvincia;
 	private String nombre;
 	private boolean estado;
 	
