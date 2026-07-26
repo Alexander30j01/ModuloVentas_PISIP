@@ -8,8 +8,9 @@ import com.uisrael.pisip.presentacion.dto.response.ClienteResponseDto;
 
 @Mapper(componentModel = "spring")
 public interface IClienteDtoMapper {
-	
+
 	Cliente toDomain(ClienteRequestDto dto);
-	
-	ClienteResponseDto toResponseDto(Cliente clientePojo);
+
+	ClienteResponseDto toResponse(Cliente clientePojo);
+
 }

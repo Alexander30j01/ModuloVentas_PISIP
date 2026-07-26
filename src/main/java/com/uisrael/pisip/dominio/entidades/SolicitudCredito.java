@@ -1,15 +1,19 @@
 package com.uisrael.pisip.dominio.entidades;
 
 public class SolicitudCredito {
+
 	private int idSolicitudesCred;
 	private float montoSolititado;
 	private String estadoAprobacion;
+	private Cliente cliente;
 
-	public SolicitudCredito(int idSolicitudesCred, float montoSolititado, String estadoAprobacion) {
+	public SolicitudCredito(int idSolicitudesCred, float montoSolititado, String estadoAprobacion,
+			Cliente cliente) {
 		super();
 		this.idSolicitudesCred = idSolicitudesCred;
 		this.montoSolititado = montoSolititado;
 		this.estadoAprobacion = estadoAprobacion;
+		this.cliente = cliente;
 	}
 
 	public SolicitudCredito() {
@@ -39,16 +43,25 @@ public class SolicitudCredito {
 	public void setEstadoAprobacion(String estadoAprobacion) {
 		this.estadoAprobacion = estadoAprobacion;
 	}
-	
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	public void registrar() {
-	    this.estadoAprobacion = "PENDIENTE";
+		this.estadoAprobacion = "PENDIENTE";
 	}
-	
+
 	public void aprobar() {
-	    this.estadoAprobacion = "APROBADO";
+		this.estadoAprobacion = "APROBADO";
 	}
-	
+
 	public void rechazar() {
-	    this.estadoAprobacion = "RECHAZADO";
+		this.estadoAprobacion = "RECHAZADO";
 	}
+
 }
