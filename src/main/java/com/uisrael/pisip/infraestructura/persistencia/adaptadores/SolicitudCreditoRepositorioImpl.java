@@ -11,9 +11,10 @@ import com.uisrael.pisip.dominio.repositorio.ISolicitudCreditoRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.SolicitudCreditoEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.ISolicitudCreditoJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.ISolicitudCreditoJpaRepositorio;
+
 @Component
-public class SolicitudCreditoRepositorioImpl implements ISolicitudCreditoRepositorio{
-	
+public class SolicitudCreditoRepositorioImpl implements ISolicitudCreditoRepositorio {
+
 	private final ISolicitudCreditoJpaRepositorio jpaRepositorio;
 	private final ISolicitudCreditoJpaMapper entityMapper;
 
@@ -26,8 +27,8 @@ public class SolicitudCreditoRepositorioImpl implements ISolicitudCreditoReposit
 
 	@Override
 	public SolicitudCredito guardar(SolicitudCredito nuevosolicitudCredito) {
-		SolicitudCreditoEntity entidad=entityMapper.toEntity(nuevosolicitudCredito);
-		SolicitudCreditoEntity guardado=jpaRepositorio.save(entidad);
+		SolicitudCreditoEntity entidad = entityMapper.toEntity(nuevosolicitudCredito);
+		SolicitudCreditoEntity guardado = jpaRepositorio.save(entidad);
 		return entityMapper.toDominio(guardado);
 	}
 
@@ -40,54 +41,5 @@ public class SolicitudCreditoRepositorioImpl implements ISolicitudCreditoReposit
 	public List<SolicitudCredito> listarTodo() {
 		return jpaRepositorio.findAll().stream().map(entityMapper::toDominio).toList();
 	}
-
-	@Override
-	public void eliminar(int idSolicitudCredito) {
-		jpaRepositorio.deleteById(idSolicitudCredito);
-		
-	}
-	
-	@Override
-	public SolicitudCredito registrar(SolicitudCredito solicitudCredito) {
-
-	    solicitudCredito.registrar();
-
-	    SolicitudCreditoEntity entidad = entityMapper.toEntity(solicitudCredito);
-
-	    SolicitudCreditoEntity guardado = jpaRepositorio.save(entidad);
-
-	    return entityMapper.toDominio(guardado);
-	}
-	
-	@Override
-	public SolicitudCredito aprobar(int idSolicitudCredito) {
-
-	    SolicitudCredito solicitud = buscarPorId(idSolicitudCredito)
-	            .orElseThrow(() -> new RuntimeException("Solicitud no encontrada"));
-
-	    solicitud.aprobar();
-
-	    SolicitudCreditoEntity entidad = entityMapper.toEntity(solicitud);
-
-	    SolicitudCreditoEntity guardado = jpaRepositorio.save(entidad);
-
-	    return entityMapper.toDominio(guardado);
-	}
-	
-	@Override
-	public SolicitudCredito rechazar(int idSolicitudCredito) {
-
-	    SolicitudCredito solicitud = buscarPorId(idSolicitudCredito)
-	            .orElseThrow(() -> new RuntimeException("Solicitud no encontrada"));
-
-	    solicitud.rechazar();
-
-	    SolicitudCreditoEntity entidad = entityMapper.toEntity(solicitud);
-
-	    SolicitudCreditoEntity guardado = jpaRepositorio.save(entidad);
-
-	    return entityMapper.toDominio(guardado);
-	}
-	
 
 }

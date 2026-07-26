@@ -1,11 +1,7 @@
 package com.uisrael.pisip.presentacion.controladores;
 
-<<<<<<< HEAD
 import java.math.BigDecimal;
 import java.util.List;
-
-=======
->>>>>>> origin/master
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

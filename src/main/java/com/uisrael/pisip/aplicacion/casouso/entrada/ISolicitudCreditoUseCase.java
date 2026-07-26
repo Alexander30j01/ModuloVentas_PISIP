@@ -2,21 +2,22 @@ package com.uisrael.pisip.aplicacion.casouso.entrada;
 
 import java.util.List;
 
+import com.uisrael.pisip.dominio.entidades.Documentacion;
 import com.uisrael.pisip.dominio.entidades.SolicitudCredito;
 
 public interface ISolicitudCreditoUseCase {
 	
-	SolicitudCredito guardar(SolicitudCredito nuevaSolicitudCredito);
+	SolicitudCredito registrar(SolicitudCredito solicitud);
 
-	SolicitudCredito buscarPorId(int idSolicitudCredito);
+    SolicitudCredito aprobar(int idSolicitud);
 
-	List<SolicitudCredito> listarTodos();
+    SolicitudCredito rechazar(int idSolicitud, String motivo);
 
-	void eliminar(int idSolicitudCredito);
-	
-	SolicitudCredito registrar(SolicitudCredito solicitudCredito);
+    boolean validarDocumentacion(int idSolicitud);
 
-	SolicitudCredito aprobar(int idSolicitudCredito);
-	
-	SolicitudCredito rechazar(int idSolicitudCredito);
+    SolicitudCredito agregarDocumento(int idSolicitud, Documentacion documento);
+
+    SolicitudCredito cambiarEstado(int idSolicitud, String nuevoEstado);
+
+    List<SolicitudCredito> listarSolicitud();
 }

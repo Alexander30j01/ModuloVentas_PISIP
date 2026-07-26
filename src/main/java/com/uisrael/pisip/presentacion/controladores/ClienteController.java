@@ -1,10 +1,8 @@
 package com.uisrael.pisip.presentacion.controladores;
 
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import com.uisrael.pisip.aplicacion.casouso.entrada.IClienteUseCase;
 import com.uisrael.pisip.dominio.entidades.Cliente;
 import com.uisrael.pisip.dominio.entidades.Pedido;

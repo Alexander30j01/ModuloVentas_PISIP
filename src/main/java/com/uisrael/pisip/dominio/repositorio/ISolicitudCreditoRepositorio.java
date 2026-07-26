@@ -6,19 +6,11 @@ import java.util.Optional;
 import com.uisrael.pisip.dominio.entidades.SolicitudCredito;
 
 public interface ISolicitudCreditoRepositorio {
-	
-	SolicitudCredito guardar(SolicitudCredito nuevosolicitudCredito);
 
-	Optional<SolicitudCredito > buscarPorId(int idSolicitudCredito );
+	SolicitudCredito guardar(SolicitudCredito solicitud);
 
-	List<SolicitudCredito > listarTodo();
+	Optional<SolicitudCredito> buscarPorId(int idSolicitud);
 
-	void eliminar(int idSolicitudCredito );
-	
-	SolicitudCredito registrar(SolicitudCredito solicitudCredito);
-	
-	SolicitudCredito aprobar(int idSolicitudCredito);
-	
-	SolicitudCredito rechazar(int idSolicitudCredito);
+	List<SolicitudCredito> listarTodo();
 
 }

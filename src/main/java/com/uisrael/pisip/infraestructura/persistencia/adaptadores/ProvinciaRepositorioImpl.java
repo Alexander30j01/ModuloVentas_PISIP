@@ -22,7 +22,7 @@ public class ProvinciaRepositorioImpl implements IProvinciaRepositorio {
 	var provinciaJpa = entityMapper.toEntity(provincia);
 	var provinciaGuardarJpa = jpaRepositorio.save(provinciaJpa);
 
-		return entityMapper.toDomain(provinciaGuardarJpa);
+		return entityMapper.toDominio(provinciaGuardarJpa);
 	}
 
 	@Override
@@ -35,14 +35,14 @@ public class ProvinciaRepositorioImpl implements IProvinciaRepositorio {
 		var provinciaJpa = entityMapper.toEntity(provincia);
 		var provinciaGuardarJpa = jpaRepositorio.save(provinciaJpa);
 
-		return entityMapper.toDomain(provinciaGuardarJpa);
+		return entityMapper.toDominio(provinciaGuardarJpa);
 	}
 
 	@Override
 	public Provincia buscarPorNombre(String nombre) {
 		Optional<ProvinciaEntity> provinciaOptional = jpaRepositorio.findByNombre(nombre);
 		if (provinciaOptional.isPresent()) {
-			return entityMapper.toDomain(provinciaOptional.get());
+			return entityMapper.toDominio(provinciaOptional.get());
 		} else {
 			return null;
 		}
@@ -52,7 +52,7 @@ public class ProvinciaRepositorioImpl implements IProvinciaRepositorio {
 	public Provincia obtenerPorId(Integer idProvincia) {
 		Optional<ProvinciaEntity> provinciaOptional = jpaRepositorio.findById(idProvincia);
 		if (provinciaOptional.isPresent()) {
-			return entityMapper.toDomain(provinciaOptional.get());
+			return entityMapper.toDominio(provinciaOptional.get());
 		} else {
 			return null;
 		}

@@ -11,6 +11,6 @@ public interface IClienteDtoMapper {
 
 	Cliente toDomain(ClienteRequestDto dto);
 
-	ClienteResponseDto toResponse(Cliente clientePojo);
+	ClienteResponseDto toResponseDto(Cliente clientePojo);
 
 }

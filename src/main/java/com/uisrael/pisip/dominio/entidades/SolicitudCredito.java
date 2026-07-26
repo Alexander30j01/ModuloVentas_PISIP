@@ -1,5 +1,8 @@
-<<<<<<< HEAD
+
 package com.uisrael.pisip.dominio.entidades;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SolicitudCredito {
 	private int idSolicitudesCred;
@@ -8,16 +11,20 @@ public class SolicitudCredito {
 
 	private Cliente cliente;
 
+	private List<Documentacion> documentos = new ArrayList<>();
+
 	public SolicitudCredito() {
 		super();
 	}
 
-	public SolicitudCredito(int idSolicitudesCred, float montoSolitado, String estadoAprobacion, Cliente cliente) {
+	public SolicitudCredito(int idSolicitudesCred, float montoSolitado, String estadoAprobacion, Cliente cliente,
+			List<Documentacion> documentos, String urlArchivo) {
 		super();
 		this.idSolicitudesCred = idSolicitudesCred;
 		this.montoSolitado = montoSolitado;
 		this.estadoAprobacion = estadoAprobacion;
 		this.cliente = cliente;
+		this.documentos = documentos;
 	}
 
 	public int getIdSolicitudesCred() {
@@ -52,73 +59,12 @@ public class SolicitudCredito {
 		this.cliente = cliente;
 	}
 
-}
-=======
-package com.uisrael.pisip.dominio.entidades;
-
-public class SolicitudCredito {
-
-	private int idSolicitudesCred;
-	private float montoSolititado;
-	private String estadoAprobacion;
-	private Cliente cliente;
-
-	public SolicitudCredito(int idSolicitudesCred, float montoSolititado, String estadoAprobacion,
-			Cliente cliente) {
-		super();
-		this.idSolicitudesCred = idSolicitudesCred;
-		this.montoSolititado = montoSolititado;
-		this.estadoAprobacion = estadoAprobacion;
-		this.cliente = cliente;
+	public List<Documentacion> getDocumentos() {
+		return documentos;
 	}
 
-	public SolicitudCredito() {
-		super();
-	}
-
-	public int getIdSolicitudesCred() {
-		return idSolicitudesCred;
-	}
-
-	public void setIdSolicitudesCred(int idSolicitudesCred) {
-		this.idSolicitudesCred = idSolicitudesCred;
-	}
-
-	public float getMontoSolititado() {
-		return montoSolititado;
-	}
-
-	public void setMontoSolititado(float montoSolititado) {
-		this.montoSolititado = montoSolititado;
-	}
-
-	public String getEstadoAprobacion() {
-		return estadoAprobacion;
-	}
-
-	public void setEstadoAprobacion(String estadoAprobacion) {
-		this.estadoAprobacion = estadoAprobacion;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public void registrar() {
-		this.estadoAprobacion = "PENDIENTE";
-	}
-
-	public void aprobar() {
-		this.estadoAprobacion = "APROBADO";
-	}
-
-	public void rechazar() {
-		this.estadoAprobacion = "RECHAZADO";
+	public void setDocumentos(List<Documentacion> documentos) {
+		this.documentos = documentos;
 	}
 
 }
->>>>>>> origin/master
