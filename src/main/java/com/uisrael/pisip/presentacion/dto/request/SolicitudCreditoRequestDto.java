@@ -1,15 +1,19 @@
 package com.uisrael.pisip.presentacion.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class SolicitudCreditoRequestDto {
-	@NotBlank
+
 	private int idSolicitudesCred;
-	@NotBlank
+
+	@NotNull
 	private float montoSolititado;
-	@NotBlank
+
 	private String estadoAprobacion;
+
+	
+	private ClienteRequestDto cliente;
 
 }

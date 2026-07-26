@@ -6,8 +6,8 @@ import com.uisrael.pisip.dominio.entidades.SolicitudCredito;
 import com.uisrael.pisip.presentacion.dto.request.SolicitudCreditoRequestDto;
 import com.uisrael.pisip.presentacion.dto.response.SolicitudCreditoResponseDto;
 
-@Mapper(componentModel = "spring")
-public interface SolicitudCreditoDtoMapper { 
+@Mapper(componentModel = "spring", uses = { IClienteDtoMapper.class })
+public interface SolicitudCreditoDtoMapper {
 
 	SolicitudCredito toDomain(SolicitudCreditoRequestDto dto);
 
