@@ -2,18 +2,21 @@ package com.uisrael.pisip.dominio.entidades;
 
 public class SolicitudCredito {
 	private int idSolicitudesCred;
-	private float montoSolititado;
+	private float montoSolitado;
 	private String estadoAprobacion;
 
-	public SolicitudCredito(int idSolicitudesCred, float montoSolititado, String estadoAprobacion) {
-		super();
-		this.idSolicitudesCred = idSolicitudesCred;
-		this.montoSolititado = montoSolititado;
-		this.estadoAprobacion = estadoAprobacion;
-	}
+	private Cliente cliente;
 
 	public SolicitudCredito() {
 		super();
+	}
+
+	public SolicitudCredito(int idSolicitudesCred, float montoSolitado, String estadoAprobacion, Cliente cliente) {
+		super();
+		this.idSolicitudesCred = idSolicitudesCred;
+		this.montoSolitado = montoSolitado;
+		this.estadoAprobacion = estadoAprobacion;
+		this.cliente = cliente;
 	}
 
 	public int getIdSolicitudesCred() {
@@ -24,12 +27,12 @@ public class SolicitudCredito {
 		this.idSolicitudesCred = idSolicitudesCred;
 	}
 
-	public float getMontoSolititado() {
-		return montoSolititado;
+	public float getMontoSolitado() {
+		return montoSolitado;
 	}
 
-	public void setMontoSolititado(float montoSolititado) {
-		this.montoSolititado = montoSolititado;
+	public void setMontoSolitado(float montoSolitado) {
+		this.montoSolitado = montoSolitado;
 	}
 
 	public String getEstadoAprobacion() {
@@ -39,16 +42,13 @@ public class SolicitudCredito {
 	public void setEstadoAprobacion(String estadoAprobacion) {
 		this.estadoAprobacion = estadoAprobacion;
 	}
-	
-	public void registrar() {
-	    this.estadoAprobacion = "PENDIENTE";
+
+	public Cliente getCliente() {
+		return cliente;
 	}
-	
-	public void aprobar() {
-	    this.estadoAprobacion = "APROBADO";
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
-	
-	public void rechazar() {
-	    this.estadoAprobacion = "RECHAZADO";
-	}
+
 }

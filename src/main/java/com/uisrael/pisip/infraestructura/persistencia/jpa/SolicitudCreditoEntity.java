@@ -16,7 +16,7 @@ public class SolicitudCreditoEntity {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int idSolicitudesCred;
-	private float montoSolititado;
+	private float montoSolitado;
 	private String estadoAprobacion;
 	
 	@ManyToOne

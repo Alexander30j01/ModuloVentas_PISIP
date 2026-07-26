@@ -1,7 +1,6 @@
 package com.uisrael.pisip.infraestructura.persistencia.mapeadores;
 
 import org.mapstruct.Mapper;
-
 import com.uisrael.pisip.dominio.entidades.Documentacion;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.DocumentacionEntity;
 

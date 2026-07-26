@@ -1,11 +1,22 @@
 package com.uisrael.pisip.aplicacion.casouso.entrada;
 
-import com.uisrael.pisip.dominio.entidades.Cliente;
+import java.math.BigDecimal;
+import java.util.List;
+
+import com.uisrael.pisip.dominio.entidades.DetallePedido;
 import com.uisrael.pisip.dominio.entidades.Pedido;
-import com.uisrael.pisip.dominio.entidades.Usuarios;
 
 public interface IPedidosUseCase {
 	
-	Pedido crearPedido(Cliente cliente, Usuarios vendedor, String metodoPago);
+	Pedido crearPedido(Pedido pedido);
+
+    List<Pedido> listarPedido();
+
+    Pedido agregarDetalle(int idPedido, DetallePedido detalle);
+
+    BigDecimal calcularTotal(int idPedido);
+
+    boolean validarStock(int idPedido);
+
 	
 }

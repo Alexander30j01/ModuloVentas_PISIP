@@ -1,5 +1,7 @@
 package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 
+import java.util.List;
+
 import com.uisrael.pisip.dominio.entidades.Pedido;
 import com.uisrael.pisip.dominio.repositorio.IPedidoRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.PedidoEntity;
@@ -18,10 +20,27 @@ public class PedidosRepositorioImpl implements IPedidoRepositorio {
 	}
 
 	@Override
-	public Pedido crerPedido(Pedido pedido) {
+	public Pedido crearPedido(Pedido pedido) {
 		PedidoEntity entity = entityMapper.toEntity(pedido);
 		PedidoEntity guardado = jpaRepositorio.save(entity);
 		return entityMapper.toDominio(guardado);
+	}
+
+	@Override
+	public List<Pedido> listarPedido() {
+		return jpaRepositorio.findAll().stream().map(entityMapper::toDominio).toList();
+	}
+
+	@Override
+	public Pedido buscarPorId(int idPedidos) {
+		return jpaRepositorio.findById(idPedidos).map(entityMapper::toDominio).orElse(null);
+	}
+
+	@Override
+	public Pedido actualizarPedido(Pedido pedido) {
+		PedidoEntity entity = entityMapper.toEntity(pedido);
+		PedidoEntity actualizado = jpaRepositorio.save(entity);
+		return entityMapper.toDominio(actualizado);
 	}
 
 }

@@ -13,6 +13,6 @@ public interface IPrecioRepositorio {
 
 	List<Precio> listarTodo();
 
-	void eliminar(int idPrecio);
+	Precio obtenerPrecioActivo();
 
 }

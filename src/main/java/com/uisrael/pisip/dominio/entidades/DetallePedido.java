@@ -7,17 +7,22 @@ public class DetallePedido {
 	private float subTotal;
 	private boolean estado;
 
-	public DetallePedido(int idDetallePedidos, int cantidad, float precioUnitario, float subTotal, boolean estado) {
+	public DetallePedido() {
+		super();
+	}
+
+	public DetallePedido(int idDetallePedidos, int cantidad, float precioUnitario, float subTotal, boolean estado,
+			Producto producto) {
 		super();
 		this.idDetallePedidos = idDetallePedidos;
 		this.cantidad = cantidad;
 		this.precioUnitario = precioUnitario;
 		this.subTotal = subTotal;
 		this.estado = estado;
+		this.producto = producto;
 	}
 
-	public DetallePedido() {
-	}
+	private Producto producto;
 
 	public int getIdDetallePedidos() {
 		return idDetallePedidos;
@@ -57,6 +62,14 @@ public class DetallePedido {
 
 	public void setEstado(boolean estado) {
 		this.estado = estado;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 
 }

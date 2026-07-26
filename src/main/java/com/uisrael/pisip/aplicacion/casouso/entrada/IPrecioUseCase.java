@@ -1,17 +1,19 @@
 package com.uisrael.pisip.aplicacion.casouso.entrada;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.uisrael.pisip.dominio.entidades.Precio;
 
 public interface IPrecioUseCase {
 	
-	Precio guardar(Precio nuevaPrecio);
+	Precio crearPrecio(Precio precio);
 
-	Precio buscarPorId(int idPrecio);
+    Precio buscarPorId(int idPrecio);
 
-	List<Precio> listarTodos();
+    List<Precio> listarTodos();
 
-	void eliminar(int idPrecio);
+    BigDecimal calcularIva(BigDecimal montoBase);
 
+    BigDecimal calcularPrecioConIva(BigDecimal montoBase);
 }

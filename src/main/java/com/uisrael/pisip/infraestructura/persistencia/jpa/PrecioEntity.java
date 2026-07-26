@@ -1,6 +1,6 @@
 package com.uisrael.pisip.infraestructura.persistencia.jpa;
 
-import java.sql.Date;
+import java.math.BigDecimal;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,15 +15,15 @@ import lombok.Data;
 @Table(name = "precio")
 public class PrecioEntity {
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPrecio;
-	private float precioVenta;
-	private Date fechaInicio;
-	private Date fechaFin;
-	private boolean estadoPrecios;
-	
+	private BigDecimal precioBase;
+	private BigDecimal porcentajeIva;
+	private BigDecimal precioConIva;
+	private boolean estado;
+
 	@ManyToOne
 	@JoinColumn(name = "fk_producto", nullable = false)
 	private ProductoEntity producto;
-	
+
 }

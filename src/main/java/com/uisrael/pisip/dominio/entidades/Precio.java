@@ -1,58 +1,67 @@
 package com.uisrael.pisip.dominio.entidades;
 
-import java.sql.Date;
+import java.math.BigDecimal;
 
 public class Precio {
-	
+
 	private int idPrecio;
-	private float precioVenta;
-	private Date fechaInicio;
-	private Date fechaFin;
-	private boolean estadoPrecios;
-	
-	
-	public Precio(int idPrecio, float precioVenta, Date fechaInicio, Date fechaFin, boolean estadoPrecios) {
-		super();
-		this.idPrecio = idPrecio;
-		this.precioVenta = precioVenta;
-		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
-		this.estadoPrecios = estadoPrecios;
-	}
-	
+	private BigDecimal precioBase;
+	private BigDecimal porcentajeIva;
+	private BigDecimal precioConIva;
+	private boolean estado;
+
 	public Precio() {
 		super();
 	}
 
-	public int getIdPrecios() {
+	public Precio(int idPrecio, BigDecimal precioBase, BigDecimal porcentajeIva, BigDecimal precioConIva,
+			boolean estado) {
+		super();
+		this.idPrecio = idPrecio;
+		this.precioBase = precioBase;
+		this.porcentajeIva = porcentajeIva;
+		this.precioConIva = precioConIva;
+		this.estado = estado;
+	}
+
+	public int getIdPrecio() {
 		return idPrecio;
 	}
-	public void setIdPrecios(int idPrecios) {
-		this.idPrecio = idPrecios;
+
+	public void setIdPrecio(int idPrecio) {
+		this.idPrecio = idPrecio;
 	}
-	public float getPrecioVenta() {
-		return precioVenta;
+
+	public BigDecimal getPrecioBase() {
+		return precioBase;
 	}
-	public void setPrecioVenta(float precioVenta) {
-		this.precioVenta = precioVenta;
+
+	public void setPrecioBase(BigDecimal precioBase) {
+		this.precioBase = precioBase;
 	}
-	public Date getFechaInicio() {
-		return fechaInicio;
+
+	public BigDecimal getPorcentajeIva() {
+		return porcentajeIva;
 	}
-	public void setFechaInicio(Date fechaInicio) {
-		this.fechaInicio = fechaInicio;
+
+	public void setPorcentajeIva(BigDecimal porcentajeIva) {
+		this.porcentajeIva = porcentajeIva;
 	}
-	public Date getFechaFin() {
-		return fechaFin;
+
+	public BigDecimal getPrecioConIva() {
+		return precioConIva;
 	}
-	public void setFechaFin(Date fechaFin) {
-		this.fechaFin = fechaFin;
+
+	public void setPrecioConIva(BigDecimal precioConIva) {
+		this.precioConIva = precioConIva;
 	}
-	public boolean isEstadoPrecios() {
-		return estadoPrecios;
+
+	public boolean isEstado() {
+		return estado;
 	}
-	public void setEstadoPrecios(boolean estadoPrecios) {
-		this.estadoPrecios = estadoPrecios;
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
-	
+
 }
