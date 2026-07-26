@@ -14,6 +14,7 @@ public interface IProductoRepositorio {
 	List<Producto> listarTodo();
 
 	void eliminar(int idProducto);
+	
 	void actualizar(Producto producto);
 
 }
