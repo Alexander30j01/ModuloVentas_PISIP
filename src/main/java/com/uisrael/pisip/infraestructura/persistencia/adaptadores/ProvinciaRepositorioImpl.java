@@ -1,7 +1,6 @@
 package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 
 import java.util.Optional;
-
 import com.uisrael.pisip.dominio.entidades.Provincia;
 import com.uisrael.pisip.dominio.repositorio.IProvinciaRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.ProvinciaEntity;
