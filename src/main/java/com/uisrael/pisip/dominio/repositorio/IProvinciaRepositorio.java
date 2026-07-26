@@ -11,7 +11,7 @@ public interface IProvinciaRepositorio {
 	
 	Provincia buscarPorNombre(String nombre);
 	
-	Provincia obtenerPorId(Integer id);
+	Provincia obtenerPorId(Integer idProvincia);
 	
 	void cambiarEstado(Provincia provincia, boolean activo);
 	

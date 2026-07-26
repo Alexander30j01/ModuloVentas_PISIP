@@ -44,6 +44,11 @@ public class ProvinciaUseCaseImpl implements IProvinciaUseCase {
 			return repositorio.actualizar(provincia);
 		}
 		return null; // O lanzar una excepción si la provincia no existe o el vendedor no coincide
+	}
+
+	@Override
+	public Provincia guardar(Provincia provincia) {
+		return repositorio.guardar(provincia);
 	}	
 	
 }

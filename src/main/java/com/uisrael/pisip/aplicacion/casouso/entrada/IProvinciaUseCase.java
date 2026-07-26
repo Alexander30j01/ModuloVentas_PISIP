@@ -4,6 +4,7 @@ import com.uisrael.pisip.dominio.entidades.Provincia;
 import com.uisrael.pisip.dominio.entidades.Usuarios;
 
 public interface IProvinciaUseCase {
+	Provincia guardar(Provincia provincia);
 	
 	Provincia registrar(Provincia provincia);
 

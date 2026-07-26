@@ -19,15 +19,55 @@ public class ProvinciaRepositorioImpl implements IProvinciaRepositorio {
 	}
 
 	@Override
-	public Provincia guardar(Provincia nuevaProvincia) {
-		ProvinciaEntity entidad = entityMapper.toEntity(nuevaProvincia);
-		ProvinciaEntity guardado = jpaRepositorio.save(entidad);
-		return entityMapper.toDominio(guardado);
+	public Provincia guardar(Provincia provincia) {
+	var provinciaJpa = entityMapper.toEntity(provincia);
+	var provinciaGuardarJpa = jpaRepositorio.save(provinciaJpa);
+
+		return entityMapper.toDomain(provinciaGuardarJpa);
 	}
 
 	@Override
-	public Optional<Provincia> buscarPorId(int idProvincia) {
-		return jpaRepositorio.findById(idProvincia).map(entityMapper::toDominio);
+	public Provincia actualizar(Provincia provincia) {
+		return guardar(provincia);
+	}
+
+	@Override
+	public Provincia registrar(Provincia provincia) {
+		var provinciaJpa = entityMapper.toEntity(provincia);
+		var provinciaGuardarJpa = jpaRepositorio.save(provinciaJpa);
+
+		return entityMapper.toDomain(provinciaGuardarJpa);
+	}
+
+	@Override
+	public Provincia buscarPorNombre(String nombre) {
+		Optional<ProvinciaEntity> provinciaOptional = jpaRepositorio.findByNombre(nombre);
+		if (provinciaOptional.isPresent()) {
+			return entityMapper.toDomain(provinciaOptional.get());
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public Provincia obtenerPorId(Integer idProvincia) {
+		Optional<ProvinciaEntity> provinciaOptional = jpaRepositorio.findById(idProvincia);
+		if (provinciaOptional.isPresent()) {
+			return entityMapper.toDomain(provinciaOptional.get());
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void cambiarEstado(Provincia provincia, boolean activo) {
+		
+		var provinciaOptional = jpaRepositorio.findById(provincia.getIdProvincia());
+		provinciaOptional.ifPresent(provinciaJpa -> {
+			provinciaJpa.setEstado(activo);
+			jpaRepositorio.save(provinciaJpa);
+		});
+		
 	}
 
 }

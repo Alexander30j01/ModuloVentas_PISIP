@@ -2,7 +2,7 @@ package com.uisrael.pisip.dominio.entidades;
 
 public class Provincia {
 
-	private int idRegion;
+	private int idProvincia;
 	private String nombre;
 	private boolean estado;
 	private Usuarios vendedor;
@@ -12,17 +12,17 @@ public class Provincia {
 	public Provincia() {
 		super();
 	}
-	public Provincia(int idRegion, String nombre, boolean estado) {
+	public Provincia(int idProvincia, String nombre, boolean estado) {
 		super();
-		this.idRegion = idRegion;
+		this.idProvincia = idProvincia;
 		this.nombre = nombre;
 		this.estado = estado;
 	}
-	public int getIdRegion() {
-		return idRegion;
+	public int getIdProvincia() {
+		return idProvincia;
 	}
-	public void setIdRegion(int idRegion) {
-		this.idRegion = idRegion;
+	public void setIdProvincia(int idProvincia) {
+		this.idProvincia = idProvincia;
 	}
 	public String getNombre() {
 		return nombre;
