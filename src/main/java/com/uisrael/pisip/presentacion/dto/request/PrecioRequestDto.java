@@ -3,19 +3,21 @@ package com.uisrael.pisip.presentacion.dto.request;
 import java.sql.Date;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class PrecioRequestDto {
-	@NotBlank
+	
+	@NotNull
 	private int idPrecio;
-	@NotBlank
+	@NotNull
 	private float precioVenta;
 	@NotBlank
 	private Date fechaInicio;
 	@NotBlank
 	private Date fechaFin;
-	@NotBlank
+	@NotNull
 	private boolean estadoPrecios;
 
 }

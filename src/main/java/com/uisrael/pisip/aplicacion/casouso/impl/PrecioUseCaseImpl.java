@@ -4,10 +4,14 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.uisrael.pisip.aplicacion.casouso.entrada.IPrecioUseCase;
 import com.uisrael.pisip.dominio.entidades.Precio;
 import com.uisrael.pisip.dominio.repositorio.IPrecioRepositorio;
 
+
+@Service
 public class PrecioUseCaseImpl implements IPrecioUseCase {
 
 	private final IPrecioRepositorio repositorio;

@@ -1,17 +1,19 @@
 package com.uisrael.pisip.presentacion.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class CategoriaRequestDto {
-	@NotBlank
+	
+	@NotNull
 	private int idCategoria;
 	@NotBlank
 	private String nombre;
 	@NotBlank
 	private String descripcion;
-	@NotBlank
+	@NotNull
 	private boolean estado;
 
 }

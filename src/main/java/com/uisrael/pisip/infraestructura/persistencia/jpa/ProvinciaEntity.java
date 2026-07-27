@@ -10,7 +10,7 @@ import lombok.Data;
 @Entity
 
 @Data
-@Table(name = "region")
+@Table(name = "provincia")
 public class ProvinciaEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

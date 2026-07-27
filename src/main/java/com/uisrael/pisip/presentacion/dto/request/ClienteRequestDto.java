@@ -1,11 +1,13 @@
 package com.uisrael.pisip.presentacion.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class ClienteRequestDto {
 	
+	@NotNull
 	private int idCliente;
 	@NotBlank
 	private String ruc;
@@ -23,7 +25,7 @@ public class ClienteRequestDto {
 	private String latitude;
 	@NotBlank
 	private String longitude;
-	@NotBlank
+	@NotNull
 	private boolean estado;
 
 }

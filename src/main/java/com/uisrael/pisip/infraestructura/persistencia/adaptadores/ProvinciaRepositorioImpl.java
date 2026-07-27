@@ -1,12 +1,16 @@
 package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 
 import java.util.Optional;
+
+import org.springframework.stereotype.Repository;
+
 import com.uisrael.pisip.dominio.entidades.Provincia;
 import com.uisrael.pisip.dominio.repositorio.IProvinciaRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.ProvinciaEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.IProvinciaJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.IProvinciaJpaRepositorio;
 
+@Repository
 public class ProvinciaRepositorioImpl implements IProvinciaRepositorio {
 
 	private final IProvinciaJpaRepositorio jpaRepositorio;

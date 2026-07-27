@@ -3,12 +3,14 @@ package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import com.uisrael.pisip.dominio.entidades.Precio;
 import com.uisrael.pisip.dominio.repositorio.IPrecioRepositorio;
 import com.uisrael.pisip.infraestructura.persistencia.jpa.PrecioEntity;
 import com.uisrael.pisip.infraestructura.persistencia.mapeadores.IPrecioJpaMapper;
 import com.uisrael.pisip.infraestructura.repositorios.IPrecioJpaRepositorio;
-
+@Repository
 public class PrecioRepositorioImpl implements IPrecioRepositorio {
 
 	private final IPrecioJpaRepositorio jpaRepository;

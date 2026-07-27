@@ -2,12 +2,13 @@ package com.uisrael.pisip.presentacion.dto.request;
 
 import java.time.Instant;
 import jakarta.validation.constraints.NotBlank;
-
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class VisitaRequestDto {
-     @NotBlank
+	
+	@NotNull
     private int idVisita;
     @NotBlank
     private Instant ingreso;
@@ -19,7 +20,7 @@ public class VisitaRequestDto {
     private double longitud;
     @NotBlank
     private String observacion;
-    @NotBlank
+    @NotNull
     private boolean estado;
 
 }

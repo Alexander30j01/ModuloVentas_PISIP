@@ -1,11 +1,13 @@
 package com.uisrael.pisip.presentacion.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class DetallePedidoRequestDto {
-	@NotBlank
+	
+	@NotNull
 	private int idDetallePedidos;
 	@NotBlank
 	private int cantidad;
@@ -13,7 +15,7 @@ public class DetallePedidoRequestDto {
 	private float precioUnitario;
 	@NotBlank
 	private float subTotal;
-	@NotBlank
+	@NotNull
 	private boolean estado;
 
 }

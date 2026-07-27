@@ -1,10 +1,13 @@
 package com.uisrael.pisip.aplicacion.casouso.impl;
 
+import org.springframework.stereotype.Service;
+
 import com.uisrael.pisip.aplicacion.casouso.entrada.IProvinciaUseCase;
 import com.uisrael.pisip.dominio.entidades.Provincia;
 import com.uisrael.pisip.dominio.entidades.Usuarios;
 import com.uisrael.pisip.dominio.repositorio.IProvinciaRepositorio;
 
+@Service
 public class ProvinciaUseCaseImpl implements IProvinciaUseCase {
 	
 	private final IProvinciaRepositorio repositorio;
