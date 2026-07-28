@@ -46,4 +46,9 @@ public class ClienteUseCaseImpl implements IClienteUseCase {
 		repositorio.cambiarEstado(cliente, activo);
 	}
 
+	@Override
+	public List<Cliente> listarTodos() {
+		return repositorio.listarTodos();
+	}
+
 }

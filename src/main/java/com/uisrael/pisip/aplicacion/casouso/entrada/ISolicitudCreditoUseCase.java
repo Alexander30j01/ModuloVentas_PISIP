@@ -9,6 +9,8 @@ public interface ISolicitudCreditoUseCase {
 	
 	SolicitudCredito registrar(SolicitudCredito solicitud);
 
+    SolicitudCredito buscarPorId(int idSolicitud);
+
     SolicitudCredito aprobar(int idSolicitud);
 
     SolicitudCredito rechazar(int idSolicitud, String motivo);
@@ -19,5 +21,5 @@ public interface ISolicitudCreditoUseCase {
 
     SolicitudCredito cambiarEstado(int idSolicitud, String nuevoEstado);
 
-    List<SolicitudCredito> listarSolicitud();
+    List<SolicitudCredito> listarTodos();
 }

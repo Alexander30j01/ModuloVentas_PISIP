@@ -1,5 +1,8 @@
 package com.uisrael.pisip.aplicacion.casouso.impl;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.uisrael.pisip.aplicacion.casouso.entrada.IRolUseCase;
@@ -43,6 +46,16 @@ public class RolUseCaseImpl implements IRolUseCase {
     @Override
     public void desactivar(int id) {
         repositorio.desactivar(id);
+    }
+
+    @Override
+    public Optional<Rol> buscarPorId(int idRol) {
+        return repositorio.buscarPorId(idRol);
+    }
+
+    @Override
+    public List<Rol> listarTodos() {
+        return repositorio.listarTodos();
     }
 
 }

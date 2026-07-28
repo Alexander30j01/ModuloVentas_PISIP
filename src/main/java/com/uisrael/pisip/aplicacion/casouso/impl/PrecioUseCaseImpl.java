@@ -39,6 +39,11 @@ public class PrecioUseCaseImpl implements IPrecioUseCase {
     }
 
     @Override
+    public Precio obtenerActivo() {
+        return repositorio.obtenerPrecioActivo();
+    }
+
+    @Override
     public BigDecimal calcularIva(BigDecimal montoBase) {
         Precio precioActivo = repositorio.obtenerPrecioActivo();
         if (precioActivo == null || precioActivo.getPorcentajeIva() == null) {

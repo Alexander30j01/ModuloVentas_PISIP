@@ -1,12 +1,13 @@
 package com.uisrael.pisip.aplicacion.casouso.impl;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 import com.uisrael.pisip.aplicacion.casouso.entrada.IProductoUseCase;
 import com.uisrael.pisip.dominio.entidades.Producto;
 import com.uisrael.pisip.dominio.repositorio.IProductoRepositorio;
 
-@Service
+// NOTA: esta clase se registra como @Bean manualmente en ConfigPisip (no llevar @Service aquí,
+// o se crearían dos beans de IProductoUseCase y fallaría el arranque por ambigüedad).
 public class ProductoUseCaseImpl implements IProductoUseCase {
 
     private final IProductoRepositorio repositorio;
@@ -24,6 +25,22 @@ public class ProductoUseCaseImpl implements IProductoUseCase {
     @Override
     public Producto actualizar(Producto producto) {
         return repositorio.guardar(producto);
+    }
+
+    @Override
+    public Producto buscarPorId(int id) {
+        return repositorio.buscarPorId(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+    }
+
+    @Override
+    public List<Producto> listarTodo() {
+        return repositorio.listarTodo();
+    }
+
+    @Override
+    public void eliminar(int id) {
+        repositorio.buscarPorId(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        repositorio.eliminar(id);
     }
 
     @Override

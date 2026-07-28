@@ -5,7 +5,9 @@ import com.uisrael.pisip.dominio.entidades.Documentacion;
 public interface IDocumentacionUseCase {
 
 	Documentacion subir(Documentacion documento);	
-	
+
+	Documentacion buscarPorId(int idDocumentacion);
+
 	Documentacion actualizar(int idDocumentacion, Documentacion documento);
 
 	void eliminarDocumento(int idDocumentacion);

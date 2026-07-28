@@ -1,5 +1,7 @@
 package com.uisrael.pisip.dominio.repositorio;
 
+import java.util.List;
+
 import com.uisrael.pisip.dominio.entidades.Provincia;
 
 public interface IProvinciaRepositorio {
@@ -14,7 +16,7 @@ public interface IProvinciaRepositorio {
 	Provincia obtenerPorId(Integer idProvincia);
 	
 	void cambiarEstado(Provincia provincia, boolean activo);
-	
-	
+
+	List<Provincia> listarTodo();
 
 }

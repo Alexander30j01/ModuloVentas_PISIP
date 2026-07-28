@@ -23,7 +23,7 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@RequestMapping("/api/precios")
+@RequestMapping("/api/precio")
 public class PrecioController {
 	
 	private final IPrecioUseCase precioUseCase;
@@ -38,6 +38,15 @@ public class PrecioController {
 		Precio precioDominio = mapper.toDomain(request);
 		Precio precioCreado = precioUseCase.crearPrecio(precioDominio);
 		return new ResponseEntity<>(mapper.toResponse(precioCreado), HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/activo")
+	public ResponseEntity<PrecioResponseDto> obtenerActivo() {
+		Precio precio = precioUseCase.obtenerActivo();
+		if (precio == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(mapper.toResponse(precio));
 	}
 	
 	@GetMapping("/{idPrecio}")

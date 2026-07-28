@@ -14,5 +14,7 @@ public class UsuariosResponseDto {
     private boolean activo;
     private boolean sesionActiva;
     private int numeroVisitas;
+    
+    private String contrasena; // Agregado para la autenticación
 
 }

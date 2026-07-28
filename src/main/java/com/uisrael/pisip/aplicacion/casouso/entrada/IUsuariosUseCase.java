@@ -7,7 +7,7 @@ import com.uisrael.pisip.dominio.entidades.Usuarios;
 public interface IUsuariosUseCase {
 	
 	
-	Usuarios guardar(Usuarios nuevaUsuarios);
+	Usuarios registrar(Usuarios nuevaUsuarios);
 
 	Usuarios buscarPorId(int idUsuarios);
 

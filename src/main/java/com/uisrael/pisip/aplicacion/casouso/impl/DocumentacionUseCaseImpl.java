@@ -23,6 +23,12 @@ public class DocumentacionUseCaseImpl implements IDocumentacionUseCase {
 	}
 
 	@Override
+	public Documentacion buscarPorId(int idDocumentacion) {
+		return repositorio.obtenerPorId(idDocumentacion)
+				.orElseThrow(() -> new RuntimeException("No existe el documento con ID: " + idDocumentacion));
+	}
+
+	@Override
 	public Documentacion actualizar(int idDocumentacion, Documentacion documento) {
 		repositorio.obtenerPorId(idDocumentacion).orElseThrow(
 				() -> new RuntimeException("No se encontró el documento para actualizar con ID: " + idDocumentacion));

@@ -1,5 +1,6 @@
 package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
@@ -71,6 +72,11 @@ public class ProvinciaRepositorioImpl implements IProvinciaRepositorio {
 			jpaRepositorio.save(provinciaJpa);
 		});
 		
+	}
+
+	@Override
+	public List<Provincia> listarTodo() {
+		return jpaRepositorio.findAll().stream().map(entityMapper::toDominio).toList();
 	}
 
 }

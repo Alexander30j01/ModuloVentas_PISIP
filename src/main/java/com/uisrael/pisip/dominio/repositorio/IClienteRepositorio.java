@@ -19,4 +19,6 @@ public interface IClienteRepositorio {
 
 	void cambiarEstado(Cliente cliente, boolean activo);
 
+	List<Cliente> listarTodos();
+
 }

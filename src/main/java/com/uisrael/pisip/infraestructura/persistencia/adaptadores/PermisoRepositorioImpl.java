@@ -1,5 +1,6 @@
 package com.uisrael.pisip.infraestructura.persistencia.adaptadores;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Component;
@@ -31,6 +32,11 @@ public class PermisoRepositorioImpl implements IPermisoRepositorio {
 		PermisoEntity entidad = entityMapper.toEntity(permiso);
 		PermisoEntity guardado = jpaRepositorio.save(entidad);
 		return entityMapper.toDomain(guardado);
+	}
+
+	@Override
+	public List<Permiso> listarTodos() {
+		return jpaRepositorio.findAll().stream().map(entityMapper::toDomain).toList();
 	}
 
 }

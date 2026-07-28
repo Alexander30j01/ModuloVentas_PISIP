@@ -2,6 +2,7 @@ package com.uisrael.pisip.presentacion.controladores;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,6 +37,11 @@ public class DocumentacionController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public DocumentacionResponseDto subirDocumento(@Valid @RequestBody DocumentacionRequestDto request) {
 		return mapper.toResponse(documentacionUseCase.subir(mapper.toDomain(request)));
+	}
+
+	@GetMapping("/{idDocumentacion}")
+	public DocumentacionResponseDto buscarPorId(@PathVariable int idDocumentacion) {
+		return mapper.toResponse(documentacionUseCase.buscarPorId(idDocumentacion));
 	}
 
 	@PutMapping("/actualizar/{idDocumentacion}")

@@ -17,5 +17,7 @@ public interface IClienteUseCase {
 	List<Pedido> consultarHistorial(int idCliente);
 
 	void cambiarEstado(Cliente cliente, boolean activo);
+	
+	List<Cliente> listarTodos();
 
 }

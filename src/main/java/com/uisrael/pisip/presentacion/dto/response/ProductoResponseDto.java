@@ -7,5 +7,7 @@ public class ProductoResponseDto {
 	private int idProductos;
 	private String nombreProductos;
 	private String descripcion;
+	private int stock;
+	private boolean estado;
 
 }

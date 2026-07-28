@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,6 +49,19 @@ public class PedidosController {
 		return ResponseEntity.ok(response);
 	}
 	
+	@GetMapping("/{idPedido}")
+	public ResponseEntity<PedidosResponseDto> buscarPorId(@PathVariable int idPedido) {
+		Pedido pedido = pedidosUseCase.buscarPorId(idPedido);
+		return ResponseEntity.ok(mapper.toResponse(pedido));
+	}
+
+	@PutMapping
+	public ResponseEntity<PedidosResponseDto> actualizar(@Valid @RequestBody PedidosRequestDto request) {
+		Pedido pedidoDominio = mapper.toDomain(request);
+		Pedido pedidoActualizado = pedidosUseCase.actualizar(pedidoDominio);
+		return ResponseEntity.ok(mapper.toResponse(pedidoActualizado));
+	}
+
 	@PostMapping("/{idPedido}/detalles")
 	public ResponseEntity<PedidosResponseDto> agregarDetalle(@PathVariable int idPedido, @RequestBody DetallePedido detalle) {
 		Pedido pedidoActualizado = pedidosUseCase.agregarDetalle(idPedido, detalle);

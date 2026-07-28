@@ -45,6 +45,12 @@ public class SolicitudCreditoController {
 		return new ResponseEntity<>(mapper.toResponse(registrada), HttpStatus.CREATED);
 	}
 
+	@GetMapping("/{idSolicitud}")
+	public ResponseEntity<SolicitudCreditoResponseDto> buscarPorId(@PathVariable int idSolicitud) {
+		SolicitudCredito solicitud = solicitudCreditoUseCase.buscarPorId(idSolicitud);
+		return ResponseEntity.ok(mapper.toResponse(solicitud));
+	}
+
 	@PatchMapping("/{idSolicitud}/aprobar")
 	public ResponseEntity<SolicitudCreditoResponseDto> aprobar(@PathVariable int idSolicitud) {
 		SolicitudCredito aprobada = solicitudCreditoUseCase.aprobar(idSolicitud);
@@ -79,10 +85,7 @@ public class SolicitudCreditoController {
 	}
 
 	@GetMapping
-	public ResponseEntity<List<SolicitudCreditoResponseDto>> listarSolicitud() {
-		List<SolicitudCredito> lista = solicitudCreditoUseCase.listarSolicitud();
-		List<SolicitudCreditoResponseDto> response = lista.stream().map(mapper::toResponse).toList();
-		return ResponseEntity.ok(response);
+	public List<SolicitudCreditoResponseDto> listarTodo() {
+		return solicitudCreditoUseCase.listarTodos().stream().map(mapper::toResponse).toList();
 	}
-
 }

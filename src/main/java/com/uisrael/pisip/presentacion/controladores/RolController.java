@@ -1,6 +1,9 @@
 package com.uisrael.pisip.presentacion.controladores;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -62,5 +65,17 @@ public class RolController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void desactivar(@PathVariable int id) {
         rolUseCase.desactivar(id);
+    }
+
+    @GetMapping("/{id}")
+    public RolResponseDto buscarPorId(@PathVariable int id) {
+        return rolUseCase.buscarPorId(id)
+                .map(mapper::toResponseDto)
+                .orElseThrow(() -> new RuntimeException("No existe el rol con ID: " + id));
+    }
+
+    @GetMapping
+    public List<RolResponseDto> listarTodos() {
+        return rolUseCase.listarTodos().stream().map(mapper::toResponseDto).toList();
     }
 }

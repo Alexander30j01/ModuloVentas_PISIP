@@ -1,5 +1,7 @@
 package com.uisrael.pisip.aplicacion.casouso.impl;
 
+import java.util.List;
+
 import com.uisrael.pisip.aplicacion.casouso.entrada.IPermisoUseCase;
 import com.uisrael.pisip.dominio.entidades.Permiso;
 import com.uisrael.pisip.dominio.repositorio.IPermisoRepositorio;
@@ -11,6 +13,23 @@ public class PermisoUseCaseImpl implements IPermisoUseCase {
 	public PermisoUseCaseImpl(IPermisoRepositorio repositorio) {
 		super();
 		this.repositorio = repositorio;
+	}
+
+	@Override
+	public Permiso registrar(Permiso permiso) {
+		permiso.setEstado(true);
+		return repositorio.guardar(permiso);
+	}
+
+	@Override
+	public Permiso buscarPorId(int idPermiso) {
+		return repositorio.obtenerPorId(idPermiso)
+				.orElseThrow(() -> new RuntimeException("No existe el permiso con ID: " + idPermiso));
+	}
+
+	@Override
+	public List<Permiso> listarTodos() {
+		return repositorio.listarTodos();
 	}
 
 	@Override

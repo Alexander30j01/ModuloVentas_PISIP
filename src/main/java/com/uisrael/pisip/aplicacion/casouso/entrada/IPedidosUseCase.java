@@ -12,6 +12,10 @@ public interface IPedidosUseCase {
 
     List<Pedido> listarPedido();
 
+    Pedido buscarPorId(int idPedido);
+
+    Pedido actualizar(Pedido pedido);
+
     Pedido agregarDetalle(int idPedido, DetallePedido detalle);
 
     BigDecimal calcularTotal(int idPedido);

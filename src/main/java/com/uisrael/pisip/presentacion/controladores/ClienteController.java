@@ -58,4 +58,10 @@ public class ClienteController {
 
 		clienteUseCase.cambiarEstado(cliente, activo);
 	}
+
+	@GetMapping
+	public List<ClienteResponseDto> listarTodos() {
+		return clienteUseCase.listarTodos().stream().map(mapper::toResponseDto).toList();
+	}
+
 }

@@ -23,6 +23,11 @@ public class SolicitudCreditoUseCaseImpl implements ISolicitudCreditoUseCase {
 	}
 
 	@Override
+	public SolicitudCredito buscarPorId(int idSolicitud) {
+		return obtenerPorId(idSolicitud);
+	}
+
+	@Override
 	public SolicitudCredito aprobar(int idSolicitudesCred) {
 		SolicitudCredito solicitud = obtenerPorId(idSolicitudesCred);
 		if (!validarDocumentacion(idSolicitudesCred)) {
@@ -64,7 +69,7 @@ public class SolicitudCreditoUseCaseImpl implements ISolicitudCreditoUseCase {
 	}
 
 	@Override
-	public List<SolicitudCredito> listarSolicitud() {
+	public List<SolicitudCredito> listarTodos() {
 		return repositorio.listarTodo();
 	}
 

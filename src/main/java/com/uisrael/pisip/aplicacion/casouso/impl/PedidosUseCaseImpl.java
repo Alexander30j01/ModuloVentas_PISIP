@@ -31,6 +31,19 @@ public class PedidosUseCaseImpl implements IPedidosUseCase {
 	}
 
 	@Override
+	public Pedido buscarPorId(int idPedido) {
+		return obtenerPedido(idPedido);
+	}
+
+	@Override
+	public Pedido actualizar(Pedido pedido) {
+		BigDecimal total = calcularTotalInterno(pedido);
+		pedido.setSubtotal(total);
+		pedido.setTotalFinal(total);
+		return repositorio.actualizarPedido(pedido);
+	}
+
+	@Override
 	public Pedido agregarDetalle(int idPedido, DetallePedido detalle) {
 		Pedido pedido = obtenerPedido(idPedido);
 

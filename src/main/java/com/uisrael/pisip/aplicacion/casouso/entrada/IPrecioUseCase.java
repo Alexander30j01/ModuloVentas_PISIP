@@ -13,6 +13,8 @@ public interface IPrecioUseCase {
 
     List<Precio> listarTodos();
 
+    Precio obtenerActivo();
+
     BigDecimal calcularIva(BigDecimal montoBase);
 
     BigDecimal calcularPrecioConIva(BigDecimal montoBase);

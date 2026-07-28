@@ -1,5 +1,7 @@
 package com.uisrael.pisip.aplicacion.casouso.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.uisrael.pisip.aplicacion.casouso.entrada.IProvinciaUseCase;
@@ -53,5 +55,25 @@ public class ProvinciaUseCaseImpl implements IProvinciaUseCase {
 	public Provincia guardar(Provincia provincia) {
 		return repositorio.guardar(provincia);
 	}	
-	
+
+	@Override
+	public Provincia buscarPorNombre(String nombre) {
+		return repositorio.buscarPorNombre(nombre);
+	}
+
+	@Override
+	public Provincia obtenerPorId(Integer idProvincia) {
+		return repositorio.obtenerPorId(idProvincia);
+	}
+
+	@Override
+	public void cambiarEstado(Provincia provincia, boolean activo) {
+		repositorio.cambiarEstado(provincia, activo);
+	}
+
+	@Override
+	public List<Provincia> listarTodo() {
+		return repositorio.listarTodo();
+	}
+
 }

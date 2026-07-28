@@ -39,7 +39,7 @@ public class UsuarioController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public UsuariosResponseDto guardar(@Valid @RequestBody UsuariosRequestDto request) {
-		return mapper.toResponse(usuariosUseCase.guardar(mapper.toDomain(request)));
+		return mapper.toResponse(usuariosUseCase.registrar(mapper.toDomain(request)));
 	}
 
 	@GetMapping
@@ -47,15 +47,19 @@ public class UsuarioController {
 		return usuariosUseCase.listarTodos().stream().map(mapper::toResponse).toList();
 	}
 
+	@GetMapping("/{id}")
+	public UsuariosResponseDto buscarPorId(@PathVariable("id") int idUsuarios) {
+		return mapper.toResponse(usuariosUseCase.buscarPorId(idUsuarios));
+	}
+
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> eliminar(@PathVariable int idUsuarios) {
+	public ResponseEntity<Void> eliminar(@PathVariable("id") int idUsuarios) {
 		usuariosUseCase.eliminar(idUsuarios);
 		return ResponseEntity.noContent().build();
 	}
 	
 	@PutMapping("/{id}/iniciarSesion")
 	public UsuariosResponseDto iniciarSesion(@PathVariable("id") int idUsuario) {
-
 	    return mapper.toResponse(
 	            usuariosUseCase.iniciarSesion(idUsuario));
 

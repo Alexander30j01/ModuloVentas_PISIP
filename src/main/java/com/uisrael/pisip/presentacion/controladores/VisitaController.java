@@ -49,8 +49,13 @@ public class VisitaController {
                 .toList();
     }
 
+    @GetMapping("/{id}")
+    public VisitaResponseDto buscarPorId(@PathVariable("id") int idVisita) {
+        return mapper.toResponse(visitaUseCase.buscarPorId(idVisita));
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable int idVisita) {
+    public ResponseEntity<Void> eliminar(@PathVariable("id") int idVisita) {
         visitaUseCase.eliminar(idVisita);
         return ResponseEntity.noContent().build();
     }
@@ -82,7 +87,7 @@ public class VisitaController {
 
     }
     
-    @PutMapping("/{id}/calcularTiempoVisita")
+    @GetMapping("/{id}/calcularTiempoVisita")
     public long calcularTiempoVisita(@PathVariable("id") int idVisita) {
 
         return visitaUseCase.calcularTiempoVisita(idVisita);

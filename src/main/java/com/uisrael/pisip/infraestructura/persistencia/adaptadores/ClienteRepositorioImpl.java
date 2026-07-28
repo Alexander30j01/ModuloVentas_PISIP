@@ -67,4 +67,9 @@ public class ClienteRepositorioImpl implements IClienteRepositorio {
 
 	}
 
+	@Override
+    public List<Cliente> listarTodos() {
+        return jpaRepositorio.findAll().stream().map(entityMapper::toDominio).toList();
+    }
+
 }
